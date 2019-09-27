@@ -1,0 +1,74 @@
+Removed Pin From Net: NetName=AGND Pin=C11-2
+Removed Pin From Net: NetName=AGND Pin=C12-2
+Removed Pin From Net: NetName=AGND Pin=C13-2
+Removed Pin From Net: NetName=AGND Pin=C14-2
+Removed Pin From Net: NetName=AGND Pin=C15-2
+Removed Pin From Net: NetName=AGND Pin=C16-1
+Removed Pin From Net: NetName=AGND Pin=C21-2
+Removed Pin From Net: NetName=AGND Pin=C22-2
+Removed Pin From Net: NetName=AGND Pin=C23-1
+Removed Pin From Net: NetName=AGND Pin=ISP-6
+Removed Pin From Net: NetName=AGND Pin=R22-2
+Removed Pin From Net: NetName=LIVE_IN Pin=R38-1
+Removed Pin From Net: NetName=NetR38_2 Pin=R39-1
+Removed Pin From Net: NetName=AGND Pin=R52-1
+Removed Pin From Net: NetName=AGND Pin=U1-3
+Removed Pin From Net: NetName=AGND Pin=U1-5
+Removed Pin From Net: NetName=AGND Pin=U1-21
+Removed Pin From Net: NetName=AGND Pin=U21-2
+Removed Pin From Net: NetName=AGND Pin=U52-3
+Added Component: Designator=R310(SMD 0805)
+Added Component: Designator=Rf(SMD 0805)
+Added Component: Designator=RV21(CN3)
+Added Component: Designator=USW(HDR1X3)
+Added Pin To Net: NetName=LIVE_IN Pin=R39-2
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=LIVE_IN Pin=RV21-1
+Added Pin To Net: NetName=AGND Pin=RV21-2
+Added Pin To Net: NetName=NetR38_2 Pin=USW-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=GND Pin=C14-2
+Added Pin To Net: NetName=GND Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C22-2
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=GND Pin=ISP-6
+Added Pin To Net: NetName=GND Pin=R22-2
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=Rf-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U1-5
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=GND Pin=U21-2
+Added Pin To Net: NetName=GND Pin=U52-3
+Added Net: Name=GND
+Added Pin To Net: NetName=NetR38_1 Pin=R38-1
+Added Pin To Net: NetName=NetR38_1 Pin=R38-1
+Added Pin To Net: NetName=NetR38_1 Pin=R38-1
+Added Pin To Net: NetName=NetR38_1 Pin=R38-1
+Added Pin To Net: NetName=NetR38_1 Pin=R38-1
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR38_1 Pin=VRV-1
+Added Net: Name=NetR38_1
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=USW-2
+Added Net: Name=NetR39_1
+Added Pin To Net: NetName=NetR310_2 Pin=R310-2
+Added Pin To Net: NetName=NetR310_2 Pin=USW-3
+Added Net: Name=NetR310_2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R310 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component Rf Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component RV21 ZOV10D471
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component USW Header 3
+Added Room: Name=AC_Measurev2_250616

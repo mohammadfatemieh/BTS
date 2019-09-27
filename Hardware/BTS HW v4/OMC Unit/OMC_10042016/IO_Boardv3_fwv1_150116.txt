@@ -1,0 +1,126 @@
+// 0.215V drop on diode
+//In 35.6
+//ADC 449
+// Vin=2.19
+//ADC(Vin) x k + 0.215 = 35.6
+//V= ADC(Vin) x   0.07880846325167037861915367483296
+//V = (int)( ADC(Vin) x 0.7881 + 2.1) 
+//216V=k1 x (Vac)= k1 x 12.75
+//Vac x 1.41=Vdc+Vdrop
+//Vdc=ADC x k2=17.02VDC 
+//V=k1 x (ADC x k2 + Vdrop)
+//k1=16.94 / v2 = 11.98
+//k2=0.02749596122778675282714054927302
+//ADC(ac)=619  
+//Vac= 11.98 x ( ADC x 0.0275 +1)
+//bts_stt_rtc.dc_vol=(int)(2.2+0.7881*adc_data[DC_ADC]);
+//bts_stt_rtc.ac_vol=(int)(11.98 * (1.01+0.0276*adc_data[AC_ADC]));
+
+//printf(">ADC value: %d;%d;%d \r\n",adc_data[Water_ADC],adc_data[AC_ADC],adc_data[DC_ADC]);
+//RS485_TxD=0; //pull down for receiver data
+
+
+static unsigned char ac_index=1;
+adc_ac_volt[ac_index]=adc_data[1];
+if(++ac_index==9) {ac_index=1;adc_ac_volt[0]=(adc_ac_volt[1]+adc_ac_volt[2]+adc_ac_volt[3]+adc_ac_volt[4]+adc_ac_volt[5]+adc_ac_volt[6]+adc_ac_volt[7]+adc_ac_volt[8])/8;}
+bts_stt_rtc.dc_vol=(int)(2.2+0.7919*adc_data[DC_ADC]); // Tinh toan dien ap DC    
+            bts_stt_rtc.ac_vol=(int)(12.163 * (.2+(float)(adc_ac_volt[0])/35.503));       // TInh toan dien ap AC    
+            if((adc_data[Water_ADC]<1000)&&(bts_stt_rtc.water==0))// Neu phat hien ra ngap nuoc lan dau tien 
+            {
+                //Ngap nuoc
+                bts_stt_rtc.water=1;
+                Relay1=1;
+                //Phat di canh bao ngap nuoc
+                RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);                    
+            }
+            else if((adc_data[Water_ADC]>1000)&&(bts_stt_rtc.water==1)) 
+            {
+                bts_stt_rtc.water=0;
+                Relay1=0;  
+            }
+             
+            if((bts_stt_rtc.dc_vol<430)&&(Relay7==0))// Neu phat hien DC yeu lan dau tien 
+            {
+                Relay7=1;
+                //Phat di canh bao DC yeu
+                RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123); 
+            }
+            else if((bts_stt_rtc.dc_vol>430)&&(Relay7==1)) Relay7=0; 
+            if((bts_stt_rtc.ac_vol<180)&&(Relay6==0))// Neu phat hien AC yeu lan dau tien  
+            {
+                Relay6=1;
+                //Phat di canh bao AC yeu
+                RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);
+            }
+            else if((bts_stt_rtc.ac_vol>180)&&(Relay6==1)) Relay6=0;
+            
+            //Neu phat hien co khoi
+            if((bts_stt_rtc.smoke==1)&&(Relay4==0))// Neu phat hien SMOKE lan dau tien  
+            {
+                Relay4=1;
+                //Phat di canh bao SMOKE
+                RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);
+            }
+            else if((bts_stt_rtc.smoke==0)&&(Relay4==1)) Relay4=0; 
+            
+            //Neu phat hien TEMP>25oC
+            if((bts_stt_rtc.Int_Sensor.temp>250)&&(Relay2==0))// Neu phat hien TEMP>25oC lan dau tien  
+            {
+                Relay2=1;
+                //Phat di canh bao TEMP>25oC
+                //RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);
+            }
+            else if((bts_stt_rtc.Int_Sensor.temp<=250)&&(Relay2==1)) Relay2=0;
+            
+            //Neu phat hien TEMP>60oC
+            if((bts_stt_rtc.Int_Sensor.temp>600)&&(Relay5==0))// Neu phat hien TEMP>60oC lan dau tien  
+            {
+                Relay5=1;
+                //Phat di canh bao TEMP>60oC
+                //RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);
+            }
+            else if((bts_stt_rtc.Int_Sensor.temp<=600)&&(Relay5==1)) Relay5=0; 
+            
+            //Neu phat hien Humi>80.0%RH
+            if((bts_stt_rtc.Int_Sensor.humi>800)&&(Relay3==0))// Neu phat hien Humi>80.0%RH lan dau tien  
+            {
+                Relay3=1;
+                //Phat di canh bao TEMP>60oC
+                //RS485_TxD=1;
+                //printf( ">BMS:%c.%c.%c.%c.%c!<",bts_stt_rtc.ac_vol,bts_stt_rtc.dc_vol>>8,bts_stt_rtc.dc_vol,(bts_stt_rtc.gate<<2)+(bts_stt_rtc.smoke<<1)+bts_stt_rtc.water,123);
+            }
+            else if((bts_stt_rtc.Int_Sensor.humi<=800)&&(Relay3==1)) Relay3=0;
+            
+            if(*usart_p=='>') 
+                { 
+                if((usart_p[1]=='1')&&(usart_p[2]=='0')&&(usart_p[3]=='1')&&(usart_p[37]=='!')&&(HexInCharToDec(usart_p[36]) +  (HexInCharToDec(usart_p[35])<<4) ==101))
+                            {   //Decoding data >101[][][]!<   
+                                bts_stt_rtc.bts_rtc.hr         = HexInCharToDec(usart_p[6]) +  (HexInCharToDec(usart_p[5])<<4);
+                                bts_stt_rtc.bts_rtc.min       = HexInCharToDec(usart_p[8]) +  (HexInCharToDec(usart_p[7])<<4);
+                                bts_stt_rtc.bts_rtc.date      = HexInCharToDec(usart_p[10]) +  (HexInCharToDec(usart_p[9])<<4);
+                                bts_stt_rtc.bts_rtc.month   = HexInCharToDec(usart_p[12]) +  (HexInCharToDec(usart_p[11])<<4);
+                                bts_stt_rtc.bts_rtc.year      = HexInCharToDec(usart_p[14]) +  (HexInCharToDec(usart_p[13])<<4);
+                                bts_stt_rtc.Ex_Sensor.humi=((HexInCharToDec(usart_p[16])+(HexInCharToDec(usart_p[15])<<4))<<8)+HexInCharToDec(usart_p[18])+16*HexInCharToDec(usart_p[17]);
+                                bts_stt_rtc.Ex_Sensor.temp=((HexInCharToDec(usart_p[20])+(HexInCharToDec(usart_p[19])<<4))<<8)+HexInCharToDec(usart_p[22])+16*HexInCharToDec(usart_p[21]);
+                                bts_stt_rtc.Int_Sensor.humi=((HexInCharToDec(usart_p[24])+(HexInCharToDec(usart_p[23])<<4))<<8)+HexInCharToDec(usart_p[26])+16*HexInCharToDec(usart_p[25]);
+                                bts_stt_rtc.Int_Sensor.temp=((HexInCharToDec(usart_p[28])+(HexInCharToDec(usart_p[27])<<4))<<8)+HexInCharToDec(usart_p[30])+16*HexInCharToDec(usart_p[29]);
+                            //delay_ms(10); 
+                            RS485_TxD=1; 
+                            printf("\r\nex:%drh%doC In:%drh%doC\r\n",bts_stt_rtc.Ex_Sensor.humi,bts_stt_rtc.Ex_Sensor.temp,bts_stt_rtc.Int_Sensor.humi,bts_stt_rtc.Int_Sensor.temp);
+                            for(usart_count=0;usart_count<50;usart_count++)
+                            {
+                            USART_DATA[usart_count]=0;
+                            }  
+                            index=0;
+                            usart_p=USART_DATA;
+                            }
+                }
+                
+                
+                

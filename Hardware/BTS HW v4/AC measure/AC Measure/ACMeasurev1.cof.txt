@@ -1,0 +1,6 @@
+Coff-Dump Utility V1.2
+Copyright (c) 2003 Custom Computer Services, Inc.
+-------------------------------------------------
+
+Error while creating the coff object:
+Coff file 'C:\Users\ngoqu\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC Measure\ACMeasurev1.cof' does not appear to be a valid COFF file.

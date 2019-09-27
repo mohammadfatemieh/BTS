@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=FAN1_OUT Pin=FAN1-2
+Removed Pin From Net: NetName=FAN2_OUT Pin=FAN2-2
+Removed Pin From Net: NetName=FAN3_OUT Pin=FAN3-2
+Removed Pin From Net: NetName=FAN4_OUT Pin=FAN4-2
+Added Pin To Net: NetName=FAN3_OUT Pin=FAN1-2
+Added Pin To Net: NetName=FAN4_OUT Pin=FAN2-2
+Added Pin To Net: NetName=FAN1_OUT Pin=FAN3-2
+Added Pin To Net: NetName=FAN2_OUT Pin=FAN4-2
+Change Net Name : Old Net Name=FAN1_OUT New Net Name=FAN3_OUT
+Change Net Name : Old Net Name=FAN2_OUT New Net Name=FAN4_OUT
+Change Net Name : Old Net Name=FAN3_OUT New Net Name=FAN1_OUT
+Change Net Name : Old Net Name=FAN4_OUT New Net Name=FAN2_OUT

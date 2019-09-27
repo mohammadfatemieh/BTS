@@ -1,0 +1,48 @@
+Added Component: Designator=R11(RESC1608N_F)
+Added Component: Designator=R12(RESC1608N_F)
+Added Component: Designator=R13(RESC1608N_F)
+Added Component: Designator=R14(RESC1608N_F)
+Added Component: Designator=R15(RESC1608N_F)
+Added Component: Designator=R16(RESC1608N_F)
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=ADE-DIN Pin=R11-2
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=ADE-DOUT Pin=R12-2
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=ADE-CLK Pin=R13-2
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=ADE-CS Pin=R14-2
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=ADE_IRQ Pin=R15-2
+Added Pin To Net: NetName=RESET Pin=R16-1
+Added Pin To Net: NetName=RESET Pin=R16-1
+Added Pin To Net: NetName=RESET Pin=R16-1
+Added Pin To Net: NetName=RESET Pin=R16-1
+Added Pin To Net: NetName=RESET Pin=R16-1
+Added Pin To Net: NetName=+5V Pin=R16-2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R11 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R12 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R13 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R14 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R15 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R16 Res

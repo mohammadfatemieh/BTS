@@ -1,0 +1,21 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~FAN_Unit_250316.PrjPcb|ReportField=ProjectFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\FAN Unit\FAN_Unit_250316.PrjPcb|ReportField=Title~Bill of Materials For Project [FAN_Unit_250316.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~48|ReportField=ReportTime~5:54:09 PM|ReportField=ReportDate~3/24/2016|ReportField=ReportDateTime~3/24/2016 5:54:09 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~3/24/2016|ReportField=CurrentTime~5:54:07 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\FAN Unit\FAN_Unit_250316.SchDoc|ReportField=DocumentName~FAN_Unit_250316.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~3/24/2016|ReportField=Organization~|ReportField=ProjectName~FAN_Unit_250316.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~FAN_Unit_250316.PrjPcb|ReportField=DataSourceFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\FAN Unit\FAN_Unit_250316.PrjPcb
+1|Led||+5V|LED 5mm RED|Led|1
+2|2200uF/35V|Cap 1000uF/16V - 220uF/50V|C22|CAP_ELEC_SIZE_G|CP4|1
+3|Cap||C31, C34, C35, C37|CAPC2012N_F|Cap|4
+4|CAP NP||C32, C33, C36|CAPC1608N|CAP NP|3
+5|100nF/104||C41|CAPC2012N_F|CAP NP|1
+6|Diode||D22, Df1, Df2, Df3, Df4|DO-214AC|Diode|5
+7|1.5A||F22|FUSE_SR-5-BK|Fuse|1
+8|NFET||FAN1, FAN2, FAN3, FAN4|TO-252|NFET|4
+9|Header 10X2A|Header, 10-Pin, Dual row|FAN_CON_1, FAN_CON_2, FAN_CON_3|OMC10|Header 10X2A|3
+10|Header 3X2A|Header, 3-Pin, Dual row|ISP|HDR2X3_CEN|Header 3X2A|1
+11|C828|Transistor C828 C1815....|Qf1, Qf2, Qf3, Qf4|SOT23 TOP|NPN|4
+12|Res_0805_1k||R22|RESC2012N_F|Res|1
+13|Res||R31, R32, R33, R34, R35|RESC1608N_ZERO|Res|5
+14|1k|Tro dan|R41, R42|RESC1608N_ZERO|Res|2
+15|330R|Tro dan|R44|RESC1608N_ZERO|Res|1
+16|Res||Rf1, Rf2, Rf3, Rf4|RESC2012N_F|Res|4
+17|Res||Rs1, Rs2, Rs3, Rs4|RESC6332N|Res|4
+18|ATmega88PA|ATmega48/168/328|U3|32PIN|ATmega48/168/328|1
+19|MAX485|RS232 - RS485 (Same sn75176)|U4|SO-8|MAX485|1
+20|20MHz||XT|XT2|Crystal|1

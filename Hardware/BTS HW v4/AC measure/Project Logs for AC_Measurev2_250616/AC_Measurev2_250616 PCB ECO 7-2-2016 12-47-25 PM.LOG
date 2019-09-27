@@ -1,0 +1,17 @@
+Removed Member From Class: ClassName=AC_Measurev2_250616 Member=E31
+Change Component DesignItemId : Designator=CF Old DesignItemId=Header 2 New DesignItemId=LED_SMD_Blue_0805_100mcd
+Change Component Footprint: Designator=CF Old Footprint=2P_PCB1 New Footprint=LED-0805-K
+Change Component Comment : Designator=CF Old Comment=Header 2 New Comment=Blue
+Change Component Designator: OldDesignator=R3cf NewDesignator=Rcf
+Added Component: Designator=OCF(2P_PCB1)
+Added Pin To Net: NetName=NetCF_A Pin=CF-A
+Added Pin To Net: NetName=NetCF_A Pin=Rcf-2
+Added Net: Name=NetCF_A
+Added Pin To Net: NetName=NetCF_K Pin=CF-K
+Added Pin To Net: NetName=NetCF_K Pin=O11-1
+Added Net: Name=NetCF_K
+Added Pin To Net: NetName=NetO11_3 Pin=O11-3
+Added Net: Name=NetO11_3
+Added Pin To Net: NetName=NetO11_4 Pin=O11-4
+Added Net: Name=NetO11_4
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component OCF Header 2

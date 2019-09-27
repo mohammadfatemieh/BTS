@@ -1,0 +1,9 @@
+VERSION:3 SOURCE_TIMESTAMP:48A34128
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega88a.h"
+NODE:I LEVEL:0 LINE:25 "C:\Users\Swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\OMC Unit\OMC_10042016\omc.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:29 "C:\cvavr\inc\stdio.h"
+NODE:F LEVEL:0 LINE:33 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:46 "usart_rx_isr(void)"
+NODE:F LEVEL:0 LINE:76 "usart_tx_isr(void)"
+NODE:F LEVEL:0 LINE:85 "main(void)"

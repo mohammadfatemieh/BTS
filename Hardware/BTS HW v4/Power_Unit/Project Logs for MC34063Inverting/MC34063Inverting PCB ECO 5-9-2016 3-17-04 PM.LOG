@@ -1,0 +1,36 @@
+Removed Pin From Net: NetName=GND Pin=C1-2
+Removed Pin From Net: NetName=SWO Pin=D1-A
+Removed Pin From Net: NetName=SWO Pin=L1-2
+Removed Pin From Net: NetName=GND Pin=R2-1
+Removed Pin From Net: NetName=+VIN Pin=Rs2-1
+Removed Pin From Net: NetName=+VIN Pin=Rs3-1
+Removed Pin From Net: NetName=SWO Pin=U1-1
+Removed Pin From Net: NetName=GND Pin=U1-2
+Removed Member From Class: ClassName=MC34063_StepUp Member=R11
+Removed Member From Class: ClassName=MC34063_StepUp Member=Rs2
+Removed Member From Class: ClassName=MC34063_StepUp Member=Rs3
+Change Component Footprint: Designator=Rs1 Old Footprint=RESC2012N_F New Footprint=RESC6332N
+Change Component Designator: OldDesignator=Ct1 NewDesignator=Ct
+Change Component Designator: OldDesignator=Rs1 NewDesignator=Rs
+Added Pin To Net: NetName=GND Pin=D1-A
+Added Pin To Net: NetName=SWO Pin=D1-K
+Added Pin To Net: NetName=SWO Pin=L1-1
+Added Pin To Net: NetName=GND Pin=R1-2
+Added Pin To Net: NetName=SWO Pin=U1-2
+Change Net Name : Old Net Name=GND New Net Name=-12V
+Change Net Name : Old Net Name=NetCt1_2 New Net Name=NetCt_2
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=L1-2
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Net: Name=GND
+Added Pin To Net: NetName=NetRs_2 Pin=Rs-2
+Added Pin To Net: NetName=NetRs_2 Pin=U1-1
+Added Pin To Net: NetName=NetRs_2 Pin=U1-7
+Added Pin To Net: NetName=NetRs_2 Pin=U1-8
+Added Net: Name=NetRs_2
+Change Class Name : Old Net Name=MC34063_StepUp New Net Name=MC34063Inverting

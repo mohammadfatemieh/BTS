@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:48A17A17
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega88a.h"
+NODE:I LEVEL:0 LINE:25 "C:\Users\Swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\DC measure\DC_Meas_Code\dcm.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:29 "C:\cvavr\inc\stdio.h"
+NODE:F LEVEL:0 LINE:34 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:45 "usart_rx_isr(void)"
+NODE:F LEVEL:0 LINE:74 "usart_tx_isr(void)"
+NODE:F LEVEL:0 LINE:83 "adc_isr(void)"
+NODE:V LEVEL:0 LINE:85 "input_index_S0000005000 -> RAM:????"
+NODE:F LEVEL:0 LINE:98 "main(void)"

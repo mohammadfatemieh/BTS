@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=PGND Pin=FAN1-1
+Removed Pin From Net: NetName=PGND Pin=FAN2-1
+Removed Pin From Net: NetName=PGND Pin=FAN3-1
+Removed Pin From Net: NetName=PGND Pin=FAN4-1
+Added Pin To Net: NetName=+48V_IN Pin=FAN1-1
+Added Pin To Net: NetName=+48V_IN Pin=FAN2-1
+Added Pin To Net: NetName=+48V_IN Pin=FAN3-1
+Added Pin To Net: NetName=+48V_IN Pin=FAN4-1

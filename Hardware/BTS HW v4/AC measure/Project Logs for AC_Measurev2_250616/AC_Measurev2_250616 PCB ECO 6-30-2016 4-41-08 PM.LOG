@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=+5V Pin=C36-2
+Removed Pin From Net: NetName=+5V Pin=C37-1
+Removed Pin From Net: NetName=+5V Pin=C38-2
+Removed Pin From Net: NetName=+5V Pin=U31-3
+Added Component: Designator=R311(RESC2012N_F)
+Added Pin To Net: NetName=+5V Pin=R311-2
+Added Pin To Net: NetName=AVDD Pin=C37-1
+Added Pin To Net: NetName=AVDD Pin=C37-1
+Added Pin To Net: NetName=AVDD Pin=C37-1
+Added Pin To Net: NetName=AVDD Pin=C37-1
+Added Pin To Net: NetName=AVDD Pin=C37-1
+Added Pin To Net: NetName=AVDD Pin=C38-2
+Added Pin To Net: NetName=AVDD Pin=R311-1
+Added Pin To Net: NetName=AVDD Pin=R311-1
+Added Pin To Net: NetName=AVDD Pin=R311-1
+Added Pin To Net: NetName=AVDD Pin=R311-1
+Added Pin To Net: NetName=AVDD Pin=R311-1
+Added Pin To Net: NetName=AVDD Pin=U31-3
+Added Net: Name=AVDD
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R311 Res

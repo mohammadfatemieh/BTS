@@ -1,0 +1,48 @@
+Removed Pin From Net: NetName=AGND Pin=R317-2
+Removed Member From Class: ClassName=AC_Measurev2_250616 Member=R317
+Added Component: Designator=AC_CON_1(OMC10)
+Added Component: Designator=AC_CON_2(OMC10)
+Added Pin To Net: NetName=+12V_IN Pin=AC_CON_1-1
+Added Pin To Net: NetName=AGND Pin=AC_CON_1-2
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-3
+Added Pin To Net: NetName=AGND Pin=AC_CON_1-4
+Added Pin To Net: NetName=RS485A Pin=AC_CON_1-5
+Added Pin To Net: NetName=RS485B Pin=AC_CON_1-6
+Added Pin To Net: NetName=+3V3 Pin=AC_CON_1-7
+Added Pin To Net: NetName=IDC Pin=AC_CON_1-9
+Added Pin To Net: NetName=+12V_IN Pin=AC_CON_1-11
+Added Pin To Net: NetName=AGND Pin=AC_CON_1-12
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-13
+Added Pin To Net: NetName=AGND Pin=AC_CON_1-14
+Added Pin To Net: NetName=RS485A Pin=AC_CON_1-15
+Added Pin To Net: NetName=RS485B Pin=AC_CON_1-16
+Added Pin To Net: NetName=+3V3 Pin=AC_CON_1-17
+Added Pin To Net: NetName=IDC Pin=AC_CON_1-19
+Added Pin To Net: NetName=CF Pin=AC_CON_2-4
+Added Pin To Net: NetName=LIVE_IN Pin=AC_CON_2-5
+Added Pin To Net: NetName=AGND Pin=AC_CON_2-6
+Added Pin To Net: NetName=CTB Pin=AC_CON_2-9
+Added Pin To Net: NetName=CTA Pin=AC_CON_2-10
+Added Pin To Net: NetName=AGND Pin=C11-2
+Added Pin To Net: NetName=AGND Pin=C12-2
+Added Pin To Net: NetName=AGND Pin=C13-2
+Added Pin To Net: NetName=AGND Pin=C14-2
+Added Pin To Net: NetName=AGND Pin=C15-2
+Added Pin To Net: NetName=AGND Pin=C16-1
+Added Pin To Net: NetName=AGND Pin=C21-2
+Added Pin To Net: NetName=AGND Pin=C22-2
+Added Pin To Net: NetName=AGND Pin=C23-1
+Added Pin To Net: NetName=AGND Pin=ISP-6
+Added Pin To Net: NetName=AGND Pin=R22-2
+Added Pin To Net: NetName=AGND Pin=R52-1
+Added Pin To Net: NetName=AGND Pin=R52-1
+Added Pin To Net: NetName=AGND Pin=R52-1
+Added Pin To Net: NetName=AGND Pin=R52-1
+Added Pin To Net: NetName=AGND Pin=R52-1
+Added Pin To Net: NetName=AGND Pin=U1-3
+Added Pin To Net: NetName=AGND Pin=U1-5
+Added Pin To Net: NetName=AGND Pin=U1-21
+Added Pin To Net: NetName=AGND Pin=U21-2
+Added Pin To Net: NetName=AGND Pin=U52-3
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component AC_CON_1 Header 10X2A
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component AC_CON_2 Header 10X2A

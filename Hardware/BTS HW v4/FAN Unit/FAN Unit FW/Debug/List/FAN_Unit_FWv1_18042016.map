@@ -1,0 +1,44 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+rx_buffer0                                                                        0x0200      50
+cpu_cmd                                                                           0x0232       2
+fan_stt                                                                           0x0234       2
+adc_data                                                                          0x0236       8
+input_index                                                                       0x023E       1
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+MyID                                                                              R4           1
+cpu_id                                                                            R3           1
+checksum                                                                          R6           1
+time_out                                                                          R5           1
+usart_count                                                                       R8           1
+time_out_run                                                                      R7           1
+process_uart                                                                      R10          1
+usart_time_out                                                                    R11,R12      2
+rx_wr_index0                                                                      R9           1
+rx_counter0                                                                       R14          1
+rx_buffer_overflow0                                                               GPIOR0.0  1bit
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+HexInCharToDec                                                                    0x0007D     20
+config_mcu                                                                        0x00091    107
+timer0_ovf_isr                                                                    0x000FC     26
+usart_rx_isr                                                                      0x00116     38
+usart_tx_isr                                                                      0x0013C      2
+adc_isr                                                                           0x0013E     53
+main                                                                              0x00173    167
+putchar                                                                           0x0021A     10
+put_usart_G100                                                                    0x00224     12
+_print_G100                                                                       0x00230    279
+printf                                                                            0x00347     30
+strlen                                                                            0x00365     11
+strlenf                                                                           0x00370     12

@@ -1,0 +1,17 @@
+Added Component: Designator=-12V(HDR1X2)
+Added Component: Designator=H1(HDR1X2)
+Added Component: Designator=H2(HDR1X2)
+Added Component: Designator=Vin(HDR1X2)
+Added Pin To Net: NetName=-12V Pin=-12V-1
+Added Pin To Net: NetName=-12V Pin=-12V-2
+Added Pin To Net: NetName=GND Pin=H1-1
+Added Pin To Net: NetName=GND Pin=H1-2
+Added Pin To Net: NetName=GND Pin=H2-1
+Added Pin To Net: NetName=GND Pin=H2-2
+Added Pin To Net: NetName=+VIN Pin=Vin-1
+Added Pin To Net: NetName=+VIN Pin=Vin-2
+Change Net Name : Old Net Name=+VIN New Net Name=VIN
+Added Member To Class: ClassName=MC34063Inverting Member=Component -12V
+Added Member To Class: ClassName=MC34063Inverting Member=Component H1 GND
+Added Member To Class: ClassName=MC34063Inverting Member=Component H2 GND
+Added Member To Class: ClassName=MC34063Inverting Member=Component Vin

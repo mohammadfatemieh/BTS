@@ -1,0 +1,96 @@
+I. Thi?t kê m?ch nguyên lý (SCHEMATIC)
+
+Phím t?t	Ch?c nang
+X	Quay linh ki?n theo tr?c X (Ð?i x?ng qua tr?c X).
+Y	Quay linh ki?n theo tr?c Y (Ð?i x?ng qua tr?c Y).
+Space	Xoay linh ki?n 90 d?.
+, SPACE	Ð?i màu khi dùng bút Highlight (Ðánh d?u các NET cùng tên)
+ALT + Click (ch?n Net)	Highlight nh?ng Net có cùng tên (Làm m? toàn b? các ph?n còn l?i c?a b?n v? SCH)
+Shift + Ctrl + C	Clear m?i áp d?ng trên SCH
+Ctrl + Click và kéo	Di chuy?n linh ki?n di cùng v?i dây (Gi?ng nhu trong Proteus)
+Shift + Space	Xoay linh ki?n 45 d?.
+Shift + Left Click	Copy linh ki?n.
+Shift + Click và kéo	Kéo linh ki?n ra.
+Ctrl+Shift+L (ho?c A L)	Can ch?nh các linh ki?n th?ng hàng d?c.
+Ctrl+Shift+T (ho?c A T)	Can ch?nh các linh ki?n th?ng hàng ngang.
+Ctrl+Shift+H (ho?c A H)	Can ch?nh các linh ki?n cách d?u nhau theo hàng ngang.
+Ctrl+Shift+V (ho?c A V)	Can ch?nh các linh ki?n cách d?u nhau theo hàng d?c.
+Ctrl + M	Ðo kho?ng cách.
+C C	Biên d?ch Project – Ki?m tra các l?i k?t n?i, port.
+D B	L?y linh ki?n trong thu vi?n.
+D O	Thay d?i thông s? b?n v?.
+D U	Update nguyên lý sang m?ch in.
+J C	Nh?y d?n linh ki?n.
+P B	V? du?ng bus.
+P N	Ð?t tên cho du?ng dây.
+P O	L?y GND.
+P T	Thêm Text.
+P W	Ð? di dây n?i chân linh ki?n.
+P V N	Ðánh d?u chân không dùng.
+T A	M? c?a s? qu?n lý d?t tên cho linh ki?n.
+T N	Ð?t tên t? d?ng cho linh ki?n.
+T S	Tìm linh ki?n bên m?ch in (B?n ch?n kh?i b?n c?n di dây bên m?ch nguyên lý r?i ?n T-S, nó s? t? d?ng tìm kh?i d?y bên m?ch in cho b?n).
+T W	T?o linh ki?n m?i
+TAB	Thay d?i các thông s? c?a m?ch.
+V D	Ðua b?n v? v?a trong khung màn hình.
+II. THI?T K? M?CH IN (PCB LAYOUT)
+
+Phím t?t	Ch?c nang
+2	Xem m?ch in ? d?ng 2D.
+3	Xem m?ch in ? d?ng 3D.
+Q	Chuy?n d?i don v? mil –> mm và ngu?c l?i.
+P T	(Place > Interactive Routing) Ch? d? di dây b?ng tay.
+P L	Ð?nh d?ng l?i kích thu?c m?ch in nh?n r?i vào l?p keep out layer v? du?ng vi?n sau dó bôi den toàn m?ch r?i nh?n D S D.
+P M	Kéo nhi?u dây 1 lúc (MultiRoute) (b?ng cách: nh?n Shift d? ch?n nhi?u Pad, sau dó nh?n P M r?i di dây nhu bình thu?ng. Trong khi MultiRoute, b?n có th? nh?n Tab d? di?u ch?nh kho?ng cách tuong d?i gi?a các dây v?i nhau)
+P G	Ph? d?ng.
+P V	L?y l? Via.
+P R	V? du?ng m?ch to, kho?ng cách gi?a các du?ng m?ch nh?.
+P D D	Hi?n th? thông tin kích thu?c PCB (gi?ng nhu trong Cad có d?ng <– 80mm –>)
+A A	Ði dây t? d?ng.
+T U A	Xóa b? t?t c? các du?ng m?ch dã ch?y.
+T U N	Xoa cac duong day cung ten.
+T D R	Ki?m tra xem dã n?i h?t dây chua sau khi hoàn thành di dây b?ng tay.
+T E	Bo tròn du?ng dây g?n chân linh ki?n (Tea Drop – hình gi?t nu?c cho du?ng m?ch g?n chân linh ki?n).
+T M	Xóa loi hien thi trên màn hình.
+D K	Ch?n l?p v?.
+D R	Ð? ch?nh các thông s? trong m?ch nhu d? r?ng c?a du?ng dây (Width), kho?ng cách 2 – dây (Clearance),cho phép ng?n m?ch (Shortcircuit)…
+D O	Ch?nh thông s? m?ch, n?u b?n không mu?n các ô vuông làm ?nh hu?ng d?n vi?n v? m?ch thì chuy?n line thành dots.
+D T A	Hi?n th? t?t c? các l?p.
+D T S	Ch? hi?n th? l?p TOP + BOTTOM + MULTI…
+C K	M? c?a s? ch?nh s?a du?ng d?n linh ki?n.
+R B	Hi?n th? thông tin m?ch (kích thu?c, s? lu?ng linh ki?n…)
+O D (Ho?c Ctrl + D)	Hi?n th? c?a s? Configurations (Ði?u ch?nh ?n hi?n các thành ph?n)
+V B	Xoay b?n v? 180 d?.
+V F	Hi?n th? toàn b? b?n v?.
+L	Khi dang di chuy?n linh ki?n l?t linh ki?n gi?a l?p Top và Bottom (Bottom và Top)
+L ho?c Ctrl+L	M? View Configuration d? di?u ch?nh hi?n th? các l?p.
+TAB	Hi?n c?a s? thay d?i thông tin khi dang thao tác.
+Fliped Board	L?t ngu?c m?ch in.
+Ctrl G ho?c G	Cài d?t ch? d? lu?i.
+Ctrl M	Thu?c do kích thu?c m?ch.
+Shift M	Kính lúp hình vuông.
+Shift R	Thay d?i các ch? d? di dây (C?t – Không cho c?t – Ð?y dây).
+Shift S	Ch? cho phép hi?n 1 l?p dang ch?n (các l?p còn l?i du?c ?n).
+Shift+Space	Thay d?i các ch? d? du?ng dây (T? do – Theo lu?t – Vuông 90 d? – Cong)
+Ctrl+Shift+L (ho?c A L)	Can ch?nh các linh ki?n th?ng hàng d?c.
+Ctrl+Shift+T (ho?c A T)	Can ch?nh các linh ki?n th?ng hàng ngang.
+Ctrl+Shift+H (ho?c A H)	Can ch?nh các linh ki?n cách d?u nhau theo hàng ngang.
+Ctrl+Shift+V (ho?c A V)	Can ch?nh các linh ki?n cách d?u nhau theo hàng d?c.
+Ctrl+Shift+Cu?n chu?t	Chuy?n qua l?i gi?a các l?p.
+III. 3D MODE (3D VISUALIZATION)
+
+Phím t?t	Ch?c nang
+0	Xoay board m?ch v? hu?ng nhìn g?c
+9	Xoay board 90 d?
+2	Chuy?n sang ch? d? 2D khi trong ch? d? 3D View
+3	Chuy?n sang View 3D khi trong ch? d? 2D
+SHIFT	Ð?ng th?i nh?n Shift và Click chu?t ph?i, di chuy?n chu?t d? xoay boad m?ch theo các tr?c X Y Z
+V F	Ði?u ch?nh board m?ch v?a khít màn hình
+V B	L?t boad m?ch
+Cu?n chu?t	Kéo lên – Kéo xu?ng
+SHIFT + Cu?n chu?t	Sang trái – Sang ph?i
+CTRL + Cu?n chu?t	Phóng to – Thu nh?
+CTRL + Di chuy?n chu?t	Phóng to – Thu nh?
+CTRL + C	Ch?p ?nh góc nhìn hi?n t?i c?a board m?ch 3D vào Clipboard, d? luu thành file ?nh b?n c?n s? d?ng tool nhu Paint ch?ng h?n.
+T P	M? c?a s? Preferences
+L	M? c?a s? Configurations – Ði?u ch?nh các thu?c tính hi?n th?

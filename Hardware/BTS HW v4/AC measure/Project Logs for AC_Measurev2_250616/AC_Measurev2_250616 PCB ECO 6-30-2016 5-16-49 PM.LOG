@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=RESET Pin=R11-1
+Removed Pin From Net: NetName=RESET Pin=R11-2
+Change Component Footprint: Designator=R3cf Old Footprint=0603ESDA New Footprint=RESC1608N_F
+Change Component Footprint: Designator=R11 Old Footprint=RESC1608N_ZERO New Footprint=RESC1608N_F
+Change Component Footprint: Designator=R12 Old Footprint=RESC1608N_ZERO New Footprint=RESC1608N_F
+Change Component Footprint: Designator=R13 Old Footprint=RESC1608N_ZERO New Footprint=RESC1608N_F
+Change Component Footprint: Designator=R14 Old Footprint=RESC1608N_ZERO New Footprint=RESC1608N_F
+Change Component Footprint: Designator=R15 Old Footprint=RESC1608N_ZERO New Footprint=RESC1608N_F
+Added Component: Designator=R16(RESC1608N_F)
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=ADE-DIN Pin=R11-2
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=+5V Pin=R11-2

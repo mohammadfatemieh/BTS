@@ -1,0 +1,5 @@
+Added Component: Designator=Iac(HDR1X2)
+Added Component: Designator=Uac(HDR1X2)
+Change Class Name : Old Net Name=AC2_Measure New Net Name=AC_Measurev2_250616
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component Iac Header 2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component Uac Header 2

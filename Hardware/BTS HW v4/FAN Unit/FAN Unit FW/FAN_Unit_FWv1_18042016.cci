@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:48A33E70
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega88.h"
+NODE:I LEVEL:0 LINE:26 "C:\cvavr\inc\stdio.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:28 "C:\Users\Swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\FAN Unit\FAN Unit FW\fan.h"
+NODE:F LEVEL:0 LINE:32 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:43 "usart_rx_isr(void)"
+NODE:F LEVEL:0 LINE:69 "usart_tx_isr(void)"
+NODE:F LEVEL:0 LINE:79 "adc_isr(void)"
+NODE:V LEVEL:0 LINE:81 "input_index_S0000005000 -> RAM:????"
+NODE:F LEVEL:0 LINE:94 "main(void)"

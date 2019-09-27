@@ -1,0 +1,63 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+adc_data                                                                          0x0200      16
+rx_buffer0                                                                        0x0210      50
+time_to_check_ADE                                                                 0x0242       2
+Irms                                                                              0x0244       4
+Vpeak                                                                             0x0248       4
+Ipeak                                                                             0x024C       4
+Vrms                                                                              0x0250       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+MyID                                                                              R4           1
+cpu_id                                                                            R3           1
+checksum                                                                          R6           1
+time_out                                                                          R5           1
+usart_count                                                                       R8           1
+time_out_run                                                                      R7           1
+process_uart                                                                      R10          1
+usart_time_out                                                                    R11,R12      2
+rx_wr_index0                                                                      R9           1
+rx_counter0                                                                       R14          1
+rx_buffer_overflow0                                                               GPIOR0.0  1bit
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+HexInCharToDec                                                                    0x00086     20
+config_mcu                                                                        0x0009A    102
+timer0_ovf_isr                                                                    0x00100     33
+usart_rx_isr                                                                      0x00121     38
+usart_tx_isr                                                                      0x00147      2
+main                                                                              0x00149    263
+ADE7753_enableChip                                                                0x00250      2
+ADE7753_disableChip                                                               0x00252      2
+ADE7753_read16                                                                    0x00254     15
+ADE7753_read24                                                                    0x00263     34
+ADE7753_write8                                                                    0x00285     12
+ADE7753_write16                                                                   0x00291     16
+ADE7753_getInterruptStatus                                                        0x002A1      2
+ADE7753_getresetInterruptStatus                                                   0x002A3      2
+ADE7753_getIRMS                                                                   0x002A5     26
+ADE7753_getVRMS                                                                   0x002BF     19
+ADE7753_vrms                                                                      0x002D2     10
+ADE7753_irms                                                                      0x002DC     21
+ADE7753_getIpeakReset                                                             0x002F1      2
+ADE7753_getVpeakReset                                                             0x002F3      3
+ADE7753_getPeriod                                                                 0x002F6      3
+ADE7753_analogSetup                                                               0x002F9     84
+ADE7753_rmsSetup                                                                  0x0034D     13
+putchar                                                                           0x0035A      9
+put_usart_G100                                                                    0x00363      8
+_print_G100                                                                       0x0036B    276
+printf                                                                            0x0047F     30
+spi                                                                               0x0049D      9
+strlen                                                                            0x004A6     11
+strlenf                                                                           0x004B1     12

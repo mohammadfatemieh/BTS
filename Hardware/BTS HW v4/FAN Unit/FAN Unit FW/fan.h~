@@ -1,0 +1,66 @@
+// Define hardware for FAN Board
+// 4 MosFet for control 4 FAN
+// Define hardware
+unsigned char MyID =0x20;//FAN's ID :0x20~0x29
+unsigned char cpu_id=0;
+unsigned char checksum=0x24;
+#define FAN1 PORTB.1
+#define FAN2 PORTB.2
+#define FAN3 PORTD.7
+#define FAN4 PORTB.0
+
+
+
+
+#define RS485_TxD PORTC.5
+#define IDC_Send DDRC.4=1;PORTC.4=0;
+#define IDC_Standby DDRC.4=0;PORTC.4=1;
+unsigned char time_out,usart_count, time_out_run,process_uart;
+unsigned int usart_time_out;
+#define DATA_REGISTER_EMPTY (1<<UDRE0)
+#define RX_COMPLETE (1<<RXC0)
+#define FRAMING_ERROR (1<<FE0)
+#define PARITY_ERROR (1<<UPE0)
+#define DATA_OVERRUN (1<<DOR0)
+
+// USART Receiver buffer
+#define RX_BUFFER_SIZE0 50
+char rx_buffer0[RX_BUFFER_SIZE0];
+
+#if RX_BUFFER_SIZE0 <= 256
+unsigned char rx_wr_index0=0;
+#else
+unsigned int rx_wr_index0=0;
+#endif
+
+#if RX_BUFFER_SIZE0 < 256
+unsigned char rx_counter0=0;
+#else
+unsigned int rx_counter0=0;
+#endif
+
+// This flag is set on USART Receiver buffer overflow
+bit rx_buffer_overflow0;
+
+
+unsigned int cpu_cmd,fan_stt;
+
+
+
+#define FIRST_ADC_INPUT 0
+#define LAST_ADC_INPUT 3
+unsigned int adc_data[LAST_ADC_INPUT-FIRST_ADC_INPUT+1];
+// Voltage Reference: AVCC pin
+#define ADC_VREF_TYPE ((0<<REFS1) | (1<<REFS0) | (0<<ADLAR))
+
+unsigned char HexInCharToDec(char data)
+      {
+            if((data>47)&&(data<58)) return (data-48);// 0...9
+            if((data>63)&&(data<71)) return (data-55);//A..F
+      }
+      
+void config_mcu(void)
+{
+
+}
+

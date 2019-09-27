@@ -1,0 +1,17 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+USART_DATA                                                        0x0200      50
+bts_stt_rtc                                                       0x0232      24
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+control_stt                                                       R4           1
+flag_for_update                                                   R5,R6        2
+index                                                             R3           1
+usart_p                                                           R7,R8        2

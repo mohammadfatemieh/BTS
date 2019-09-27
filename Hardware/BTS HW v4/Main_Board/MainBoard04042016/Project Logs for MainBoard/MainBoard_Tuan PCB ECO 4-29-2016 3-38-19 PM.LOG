@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=AUX9 Pin=CPU_Aux-1
+Removed Pin From Net: NetName=AUX8 Pin=CPU_Aux-2
+Removed Pin From Net: NetName=AUX7 Pin=CPU_Aux-3
+Removed Pin From Net: NetName=AUX6 Pin=CPU_Aux-4
+Removed Pin From Net: NetName=AUX5 Pin=CPU_Aux-5
+Removed Pin From Net: NetName=AUX4 Pin=CPU_Aux-6
+Removed Pin From Net: NetName=AUX3 Pin=CPU_Aux-7
+Removed Pin From Net: NetName=AUX2 Pin=CPU_Aux-8
+Removed Pin From Net: NetName=AUX1 Pin=CPU_Aux-9
+Removed Member From Class: ClassName=MainBoard Member=CPU_Aux
+Added Component: Designator=CPU_AUX_O(HDR2X5)
+Added Pin To Net: NetName=AUX1 Pin=CPU_AUX_O-2
+Added Pin To Net: NetName=AUX6 Pin=CPU_AUX_O-3
+Added Pin To Net: NetName=AUX2 Pin=CPU_AUX_O-4
+Added Pin To Net: NetName=AUX7 Pin=CPU_AUX_O-5
+Added Pin To Net: NetName=AUX3 Pin=CPU_AUX_O-6
+Added Pin To Net: NetName=AUX8 Pin=CPU_AUX_O-7
+Added Pin To Net: NetName=AUX4 Pin=CPU_AUX_O-8
+Added Pin To Net: NetName=AUX9 Pin=CPU_AUX_O-9
+Added Pin To Net: NetName=AUX5 Pin=CPU_AUX_O-10
+Added Member To Class: ClassName=MainBoard Member=Component CPU_AUX_O Header 5X2

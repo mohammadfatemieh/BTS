@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=RESET Pin=R11-1
+Removed Pin From Net: NetName=RESET Pin=R11-2
+Added Component: Designator=R16(RESC1608N_ZERO)
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=ADE-DIN Pin=R11-2
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=+5V Pin=R11-2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R16 Res

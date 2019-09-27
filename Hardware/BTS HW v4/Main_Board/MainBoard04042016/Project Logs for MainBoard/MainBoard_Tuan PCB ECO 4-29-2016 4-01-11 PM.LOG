@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=TEMP- Pin=DC_CON_2-13
+Removed Pin From Net: NetName=DC6 Pin=DC_CON_2-14
+Removed Pin From Net: NetName=DC5 Pin=DC_CON_2-15
+Removed Pin From Net: NetName=DC4 Pin=DC_CON_2-16
+Removed Pin From Net: NetName=DC3 Pin=DC_CON_2-17
+Removed Pin From Net: NetName=DC2 Pin=DC_CON_2-18
+Removed Pin From Net: NetName=DC1 Pin=DC_CON_2-19
+Removed Pin From Net: NetName=DC0 Pin=DC_CON_2-20
+Added Pin To Net: NetName=TEMP- Pin=DC_CON_2-3
+Added Pin To Net: NetName=DC6 Pin=DC_CON_2-4
+Added Pin To Net: NetName=DC5 Pin=DC_CON_2-5
+Added Pin To Net: NetName=DC4 Pin=DC_CON_2-6
+Added Pin To Net: NetName=DC3 Pin=DC_CON_2-7
+Added Pin To Net: NetName=DC2 Pin=DC_CON_2-8
+Added Pin To Net: NetName=DC1 Pin=DC_CON_2-9
+Added Pin To Net: NetName=DC0 Pin=DC_CON_2-10

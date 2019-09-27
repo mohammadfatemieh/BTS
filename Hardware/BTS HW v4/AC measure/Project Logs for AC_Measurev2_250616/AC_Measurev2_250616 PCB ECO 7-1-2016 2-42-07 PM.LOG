@@ -1,0 +1,25 @@
+Added Component: Designator=C21(CAP 3.8mm)
+Added Component: Designator=C22(CAP 3.8mm)
+Added Component: Designator=C23(SMD 1206)
+Added Component: Designator=D22(DO-214AC)
+Added Component: Designator=RS485(2P_PCB1)
+Added Component: Designator=U21(TO252 D-PAK)
+Added Pin To Net: NetName=NetC21_1 Pin=C21-1
+Added Pin To Net: NetName=GND Pin=C21-2
+Added Pin To Net: NetName=+5V Pin=C22-1
+Added Pin To Net: NetName=GND Pin=C22-2
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=NetC21_1 Pin=C23-2
+Added Pin To Net: NetName=+VIN Pin=D22-A
+Added Pin To Net: NetName=NetC21_1 Pin=D22-K
+Added Pin To Net: NetName=RS485B Pin=RS485-1
+Added Pin To Net: NetName=RS485A Pin=RS485-2
+Added Pin To Net: NetName=NetC21_1 Pin=U21-1
+Added Pin To Net: NetName=GND Pin=U21-2
+Added Pin To Net: NetName=+5V Pin=U21-3
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component C21 Cap
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component C22 Cap
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component C23 CAP NP
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component D22 Diode
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component RS485 Header 2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component U21 LM78M05

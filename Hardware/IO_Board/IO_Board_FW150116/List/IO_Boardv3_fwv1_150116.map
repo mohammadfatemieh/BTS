@@ -1,0 +1,22 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+bts_stt_rtc                                                       0x0200      26
+adc_data                                                          0x021A       6
+adc_ac_volt                                                       0x0220      18
+input_index                                                       0x0232       1
+ac_index                                                          0x0233       1
+USART_DATA                                                        0x0234      50
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+flag_for_update                                                   R3,R4        2
+flag_for_volt                                                     R5,R6        2
+usart_status                                                      R8           1
+index                                                             R7           1
+usart_p                                                           R9,R10       2

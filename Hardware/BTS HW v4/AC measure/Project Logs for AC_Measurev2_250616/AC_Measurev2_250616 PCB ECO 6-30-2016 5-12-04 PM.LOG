@@ -1,0 +1,85 @@
+Removed Pin From Net: NetName=AGND Pin=C31-1
+Removed Pin From Net: NetName=AGND Pin=C32-1
+Removed Pin From Net: NetName=AGND Pin=E31-K
+Removed Pin From Net: NetName=RESET Pin=R11-1
+Removed Pin From Net: NetName=+5V Pin=R11-2
+Removed Pin From Net: NetName=ADE_IRQ Pin=U31-14
+Removed Pin From Net: NetName=ADE-CS Pin=U31-17
+Removed Pin From Net: NetName=ADE-CLK Pin=U31-18
+Removed Pin From Net: NetName=ADE-DOUT Pin=U31-19
+Removed Pin From Net: NetName=ADE-DIN Pin=U31-20
+Change Component Footprint: Designator=C313 Old Footprint=CAPC1608N New Footprint=CAPC2012N_F
+Change Component Footprint: Designator=R11 Old Footprint=RESC1608N_ZERO New Footprint=RESC2012N_F
+Added Component: Designator=CF(2P_PCB1)
+Added Component: Designator=O11(DIP4/W0.3)
+Added Component: Designator=R12(RESC2012N_F)
+Added Component: Designator=R13(RESC2012N_F)
+Added Component: Designator=R14(RESC2012N_F)
+Added Component: Designator=R15(RESC2012N_F)
+Added Component: Designator=R16(RESC1608N_ZERO)
+Added Pin To Net: NetName=GND Pin=C31-1
+Added Pin To Net: NetName=GND Pin=C32-1
+Added Pin To Net: NetName=+5V Pin=C36-2
+Added Pin To Net: NetName=GND Pin=O11-2
+Added Pin To Net: NetName=ADE-DIN Pin=R11-2
+Added Pin To Net: NetName=ADE-DOUT Pin=R12-2
+Added Pin To Net: NetName=ADE-CLK Pin=R13-2
+Added Pin To Net: NetName=ADE-CS Pin=R14-2
+Added Pin To Net: NetName=ADE_IRQ Pin=R15-2
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=RESET Pin=R11-1
+Added Pin To Net: NetName=+5V Pin=R11-2
+Added Pin To Net: NetName=NetCF_1 Pin=CF-1
+Added Pin To Net: NetName=NetCF_1 Pin=O11-4
+Added Net: Name=NetCF_1
+Added Pin To Net: NetName=NetCF_2 Pin=CF-2
+Added Pin To Net: NetName=NetCF_2 Pin=O11-3
+Added Net: Name=NetCF_2
+Added Pin To Net: NetName=NetE31_K Pin=E31-K
+Added Pin To Net: NetName=NetE31_K Pin=O11-1
+Added Net: Name=NetE31_K
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=U31-20
+Added Net: Name=NetR11_1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=U31-19
+Added Net: Name=NetR12_1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetR13_1 Pin=U31-18
+Added Net: Name=NetR13_1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=U31-17
+Added Net: Name=NetR14_1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=R15-1
+Added Pin To Net: NetName=NetR15_1 Pin=U31-14
+Added Net: Name=NetR15_1
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component CF Header 2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component O11 Opto
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R12 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R13 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R14 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R15 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R16 Res

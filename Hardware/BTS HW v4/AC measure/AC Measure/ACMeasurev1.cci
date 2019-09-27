@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:48A33B6E
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega88a.h"
+NODE:I LEVEL:0 LINE:26 "C:\cvavr\inc\stdio.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:28 "C:\Users\ngoqu\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC Measure\acm.h"
+NODE:I LEVEL:0 LINE:29 "C:\Users\ngoqu\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC Measure\ade7753.h"
+NODE:I LEVEL:0 LINE:31 "C:\cvavr\inc\spi.h"
+NODE:F LEVEL:0 LINE:36 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:48 "usart_rx_isr(void)"
+NODE:F LEVEL:0 LINE:77 "usart_tx_isr(void)"
+NODE:F LEVEL:0 LINE:85 "main(void)"

@@ -1,0 +1,26 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+rx_buffer0                                                        0x0200      50
+cpu_cmd                                                           0x0232       2
+adc_data                                                          0x0234      16
+input_index                                                       0x0244       1
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+MyID                                                              R4           1
+cpu_id                                                            R3           1
+checksum                                                          R6           1
+time_out                                                          R5           1
+usart_count                                                       R8           1
+time_out_run                                                      R7           1
+process_uart                                                      R10          1
+usart_time_out                                                    R11,R12      2
+rx_wr_index0                                                      R9           1
+rx_counter0                                                       R14          1
+rx_buffer_overflow0                                               GPIOR0.0  1bit

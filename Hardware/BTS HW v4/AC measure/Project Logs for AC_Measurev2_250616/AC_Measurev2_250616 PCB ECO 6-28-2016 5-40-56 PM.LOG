@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=CTB Pin=Iac-1
+Added Pin To Net: NetName=CTA Pin=Iac-2
+Added Pin To Net: NetName=AGND Pin=Uac-1
+Added Pin To Net: NetName=LIVE_IN Pin=Uac-2

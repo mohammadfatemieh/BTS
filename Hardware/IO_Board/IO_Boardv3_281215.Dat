@@ -1,0 +1,28 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~IO_Boardv3_281215.PrjPcb|ReportField=ProjectFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\IO_Board\IO_Boardv3_281215.PrjPcb|ReportField=Title~Bill of Materials For Project [IO_Boardv3_281215.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~134|ReportField=ReportTime~2:24:46 PM|ReportField=ReportDate~12/31/2015|ReportField=ReportDateTime~12/31/2015 2:24:46 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~12/31/2015|ReportField=CurrentTime~10:51:02 AM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\IO_Board\IO_Boardv3_281215.SchDoc|ReportField=DocumentName~IO_Boardv3_281215.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~12/31/2015|ReportField=Organization~|ReportField=ProjectName~IO_Boardv3_281215.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~IO_Boardv3_281215.PrjPcb|ReportField=DataSourceFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\IO_Board\IO_Boardv3_281215.PrjPcb
+1|Led||+5V, +12V|LED 5mm RED|Led|2
+2|Stackable ScrewTerm|Terminal Block Screw Type THT 2-Position 3.81mm pitch|5V_IN, 12V_IN, 12VAC_IN, 48VDC_IN|2P_PCB_ScrewTerm_200mil|2P_ScrewTerm_90S_3.81MM|4
+3|CAP NP||C01, Crl1, Crl2, Crl3, Crl4, Crl5, Crl6, Crl7, Crl8, Crl9|CAPC2012N_F|CAP NP|10
+4|2200uF/35V|Cap 1000uF/16V - 220uF/50V|C21, C22, C25|CP_1000uF_25V|CP4|3
+5|Cap||C23, C24|CAP_ELEC_6.3x4.2|Cap|2
+6|Cap||C31, C34, C35|CAPC2012N_F|Cap|3
+7|CAP NP||C32, C33, C36|CAPC1608N|CAP NP|3
+8|100nF/104||C41|CAPC2012N_F|CAP NP|1
+9|Diode||D01, D11, D12, D13, D14, D15, D16, D17, D18, D19, D21, D22, D23, D24|DO-214AC|Diode|14
+10|Header 10X2A|Header, 10-Pin, Dual row|DryOut|HDR2X10_CEN|Header 10X2A|1
+11|Blue|LED 0805 SMD Blue 100mcd 470nm|E01, E1, E2, E3, E4, E5, E6, E7, E8, E9|LED-0805-A|LED_SMD_Blue_0805_100mcd|10
+12|JP5|Connector 5|EX_LG_IN1, EX_LG_IN2|CON5|Con5|2
+13|1.5A||F21, F22|FUSE_SR-5-BK|Fuse|2
+14|PC817||IN1, IN2|DIP4/W0.3|Opto|2
+15|Header 3X2A|Header, 3-Pin, Dual row|ISP|HDR2X3_CEN|Header 3X2A|1
+16|C828|Transistor C828 C1815....|Q01, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19|SOT23 TOP|NPN|10
+17|Res||R01, R02, R03, R04, R23, R24, R25, R26, R27, R28, R32, R33|RESC2012N_F|Res|12
+18|Res||R05, R06, R07, R31, Rl52, Rrl11, Rrl12, Rrl13, Rrl21, Rrl22, Rrl23, Rrl31, Rrl32, Rrl33, Rrl41, Rrl42, Rrl43, Rrl51, Rrl53, Rrl61, Rrl62, Rrl63, Rrl71, Rrl72, Rrl73, Rrl81, Rrl82, Rrl83, Rrl91, Rrl92, Rrl93|RESC1608N_ZERO|Res|31
+19|Res_0805_1k||R21, R22|RESC2012N_F|Res|2
+20|1k|Tro dan|R41, R42|RESC2012N_F|Res|2
+21|330R|Tro dan|R43, R44|RESC2012N_F|Res|2
+22|Relay 10A/5V|Relay SPDT,10A - 12VDC 5 Pin|RL1, RL2, RL3, RL4, RL5, RL6, RL7, RL8, RL9, RLP|RL_5PIN|Relay 1|10
+23|Stackable ScrewTerm|Terminal Block Screw Type THT 2-Position 3.81mm pitch|RS485|2P_PCB1|2P_ScrewTerm_90S_3.81MM|1
+24|ATmega88PA|ATmega48/168/328|U3|32PIN|ATmega48/168/328|1
+25|MAX485|RS232 - RS485 (Same sn75176)|U4|SO-8|MAX485|1
+26|Water Detect|Header, 2-Pin|WD|HDR1X2|Header 2|1
+27|20MHz||XT|XT2|Crystal|1

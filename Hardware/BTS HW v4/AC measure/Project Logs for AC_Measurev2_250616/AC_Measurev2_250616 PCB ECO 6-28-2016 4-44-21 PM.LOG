@@ -1,0 +1,47 @@
+Removed Pin From Net: NetName=+5V Pin=AC_CON_1-3
+Removed Pin From Net: NetName=+5V Pin=AC_CON_1-13
+Removed Pin From Net: NetName=GND Pin=C41-1
+Removed Pin From Net: NetName=+5V Pin=C41-2
+Removed Pin From Net: NetName=GND Pin=D22-A
+Removed Pin From Net: NetName=+5V Pin=D22-K
+Removed Pin From Net: NetName=+5V Pin=R41-2
+Removed Pin From Net: NetName=GND Pin=R42-1
+Removed Pin From Net: NetName=GND Pin=R44-1
+Removed Pin From Net: NetName=GND Pin=U4-5
+Removed Pin From Net: NetName=+5V Pin=U4-8
+Change Component DesignItemId : Designator=C22 Old DesignItemId=CP4 New DesignItemId=Cap
+Change Component Footprint: Designator=C22 Old Footprint=CAP_ELEC_SIZE_G New Footprint=CAP 3.8mm
+Change Component Comment : Designator=C22 Old Comment=2200uF/35V New Comment=Cap
+Added Component: Designator=C21(CAP 3.8mm)
+Added Component: Designator=C23(SMD 1206)
+Added Component: Designator=U21(TO252 D-PAK)
+Added Pin To Net: NetName=GND Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=GND Pin=U21-2
+Added Pin To Net: NetName=+5V Pin=U21-3
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-3
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-13
+Added Net: Name=+5V_IN
+Added Pin To Net: NetName=+VIN Pin=D22-A
+Added Net: Name=+VIN
+Added Pin To Net: NetName=EX_+5V Pin=C41-2
+Added Pin To Net: NetName=EX_+5V Pin=R41-2
+Added Pin To Net: NetName=EX_+5V Pin=U4-8
+Added Net: Name=EX_+5V
+Added Pin To Net: NetName=EX_GND Pin=C41-1
+Added Pin To Net: NetName=EX_GND Pin=C41-1
+Added Pin To Net: NetName=EX_GND Pin=C41-1
+Added Pin To Net: NetName=EX_GND Pin=C41-1
+Added Pin To Net: NetName=EX_GND Pin=C41-1
+Added Pin To Net: NetName=EX_GND Pin=R42-1
+Added Pin To Net: NetName=EX_GND Pin=R44-1
+Added Pin To Net: NetName=EX_GND Pin=U4-5
+Added Net: Name=EX_GND
+Added Pin To Net: NetName=NetC21_1 Pin=C21-1
+Added Pin To Net: NetName=NetC21_1 Pin=C23-2
+Added Pin To Net: NetName=NetC21_1 Pin=D22-K
+Added Pin To Net: NetName=NetC21_1 Pin=U21-1
+Added Net: Name=NetC21_1
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component C21 Cap
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component C23 CAP NP
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component U21 LM78M05

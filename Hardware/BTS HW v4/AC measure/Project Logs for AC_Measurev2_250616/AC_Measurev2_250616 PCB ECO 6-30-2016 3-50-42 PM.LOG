@@ -1,0 +1,15 @@
+Added Component: Designator=TP1(TP-R60)
+Added Component: Designator=TP2(TP-R60)
+Added Component: Designator=TP3(TP-R60)
+Added Component: Designator=TP4(TP-R60)
+Added Component: Designator=TP5(TP-R60)
+Added Pin To Net: NetName=V1P Pin=TP1-1
+Added Pin To Net: NetName=V1N Pin=TP2-1
+Added Pin To Net: NetName=V2P Pin=TP3-1
+Added Pin To Net: NetName=V2N Pin=TP4-1
+Added Pin To Net: NetName=REF Pin=TP5-1
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component TP1 TESTPOINT
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component TP2 TESTPOINT
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component TP3 TESTPOINT
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component TP4 TESTPOINT
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component TP5 TESTPOINT

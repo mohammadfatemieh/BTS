@@ -1,0 +1,93 @@
+Removed Pin From Net: NetName=RS485D Pin=U1-28
+Removed Pin From Net: NetName=MCU_RX Pin=U4-1
+Removed Pin From Net: NetName=MCU_TX Pin=U4-4
+Added Component: Designator=AC_CON_1(OMC10)
+Added Component: Designator=AC_CON_2(OMC10)
+Added Component: Designator=R51(RESC2012N_F)
+Added Component: Designator=R52(RESC2012N_F)
+Added Component: Designator=R53(RESC2012N_F)
+Added Component: Designator=R54(RESC2012N_F)
+Added Component: Designator=R55(RESC2012N_F)
+Added Component: Designator=U51(DIP4/W0.3)
+Added Component: Designator=U52(DIP4/W0.3)
+Added Component: Designator=U53(DIP4/W0.3)
+Added Pin To Net: NetName=+12V_IN Pin=AC_CON_1-1
+Added Pin To Net: NetName=GND Pin=AC_CON_1-2
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-3
+Added Pin To Net: NetName=GND Pin=AC_CON_1-4
+Added Pin To Net: NetName=RS485A Pin=AC_CON_1-5
+Added Pin To Net: NetName=RS485B Pin=AC_CON_1-6
+Added Pin To Net: NetName=+3V3 Pin=AC_CON_1-7
+Added Pin To Net: NetName=IDC Pin=AC_CON_1-9
+Added Pin To Net: NetName=+12V_IN Pin=AC_CON_1-11
+Added Pin To Net: NetName=GND Pin=AC_CON_1-12
+Added Pin To Net: NetName=+5V_IN Pin=AC_CON_1-13
+Added Pin To Net: NetName=GND Pin=AC_CON_1-14
+Added Pin To Net: NetName=RS485A Pin=AC_CON_1-15
+Added Pin To Net: NetName=RS485B Pin=AC_CON_1-16
+Added Pin To Net: NetName=+3V3 Pin=AC_CON_1-17
+Added Pin To Net: NetName=IDC Pin=AC_CON_1-19
+Added Pin To Net: NetName=CF Pin=AC_CON_2-4
+Added Pin To Net: NetName=LIVE_IN Pin=AC_CON_2-5
+Added Pin To Net: NetName=AGND Pin=AC_CON_2-6
+Added Pin To Net: NetName=CTB Pin=AC_CON_2-9
+Added Pin To Net: NetName=CTA Pin=AC_CON_2-10
+Added Pin To Net: NetName=MCU_TX Pin=R51-1
+Added Pin To Net: NetName=MCU_TX Pin=R51-1
+Added Pin To Net: NetName=MCU_TX Pin=R51-1
+Added Pin To Net: NetName=MCU_TX Pin=R51-1
+Added Pin To Net: NetName=MCU_TX Pin=R51-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=GND Pin=R52-1
+Added Pin To Net: NetName=MCU_RX Pin=R54-1
+Added Pin To Net: NetName=MCU_RX Pin=R54-1
+Added Pin To Net: NetName=MCU_RX Pin=R54-1
+Added Pin To Net: NetName=MCU_RX Pin=R54-1
+Added Pin To Net: NetName=MCU_RX Pin=R54-1
+Added Pin To Net: NetName=+5V Pin=R54-2
+Added Pin To Net: NetName=EX_+5V Pin=R55-2
+Added Pin To Net: NetName=+5V Pin=U51-1
+Added Pin To Net: NetName=EX_GND Pin=U51-3
+Added Pin To Net: NetName=EX_+5V Pin=U52-1
+Added Pin To Net: NetName=GND Pin=U52-3
+Added Pin To Net: NetName=MCU_RX Pin=U52-4
+Added Pin To Net: NetName=RS485D Pin=U53-3
+Added Pin To Net: NetName=EX_+5V Pin=U53-4
+Change Net Name : Old Net Name=RS485D New Net Name=ISO_485
+Added Pin To Net: NetName=ISO_RX Pin=R53-1
+Added Pin To Net: NetName=ISO_RX Pin=R53-1
+Added Pin To Net: NetName=ISO_RX Pin=R53-1
+Added Pin To Net: NetName=ISO_RX Pin=R53-1
+Added Pin To Net: NetName=ISO_RX Pin=R53-1
+Added Pin To Net: NetName=ISO_RX Pin=U4-1
+Added Net: Name=ISO_RX
+Added Pin To Net: NetName=ISO_TX Pin=R55-1
+Added Pin To Net: NetName=ISO_TX Pin=R55-1
+Added Pin To Net: NetName=ISO_TX Pin=R55-1
+Added Pin To Net: NetName=ISO_TX Pin=R55-1
+Added Pin To Net: NetName=ISO_TX Pin=R55-1
+Added Pin To Net: NetName=ISO_TX Pin=U4-4
+Added Pin To Net: NetName=ISO_TX Pin=U51-4
+Added Net: Name=ISO_TX
+Added Pin To Net: NetName=NetR51_2 Pin=R51-2
+Added Pin To Net: NetName=NetR51_2 Pin=U51-2
+Added Net: Name=NetR51_2
+Added Pin To Net: NetName=NetR53_2 Pin=R53-2
+Added Pin To Net: NetName=NetR53_2 Pin=U52-2
+Added Net: Name=NetR53_2
+Added Pin To Net: NetName=RS485D Pin=U1-28
+Added Pin To Net: NetName=RS485D Pin=U53-1
+Added Net: Name=RS485D
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component AC_CON_1 Header 10X2A
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component AC_CON_2 Header 10X2A
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R51 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R52 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R53 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R54 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R55 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component U51 Opto
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component U52 Opto
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component U53 Opto

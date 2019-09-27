@@ -1,0 +1,24 @@
+﻿Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~STM32Ethernet.PrjPcb|ReportField=ProjectFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\STM32Ethernet.PrjPcb|ReportField=Title~Bill of Materials For PCB Document [STM32Ethernet.PcbDoc]|ReportField=TotalQuantity~61|ReportField=ReportTime~9:23:07 AM|ReportField=ReportDate~9/9/2015|ReportField=ReportDateTime~9/9/2015 9:23:07 AM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=DataSourceFileName~STM32Ethernet.PcbDoc|ReportField=DataSourceFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\STM32Ethernet.PcbDoc
+CRY_25MHZ|Crystal Oscillator|1|cry|cry|1
+CAP_104_0603|Capacitor|C1, C2, C7, C8, C9, C10, C11, C12, C13, C14, C16, C17, C18, C20|CAP_0805_TOP|Cap 1206 BUT|14
+CAP_105_0603|Capacitor|C3|CAP_0805_TOP|Cap 1206 BUT|1
+CAP_102_0603|Capacitor|C4, C5, C21|CAP_0805_TOP|Cap 1206 BUT|3
+CAP_18pF_0603|Capacitor|C6, C19|CAP_0603_TOP|Cap 1206 BUT|2
+CAP_10uF/35V||C15|CAP_10uF/35V|CAP P|1
+LED_RED_0805|Typical INFRARED GaAs LED|D1|LED 0805 TOP|LED 0805 TOP|1
+LED_BLUE_0805|Typical INFRARED GaAs LED|D2|LED 0805 TOP|LED 0805 TOP|1
+LED_GREEN_0805|Typical INFRARED GaAs LED|D3|LED 0805 TOP|LED 0805 TOP|1
+RJ45|RJ45 Connector, with Leds|J1|CONNECTOR_RJ45_HR911102A|RJ45|1
+Header 4|Header, 4-Pin|P1, P2|HDR1X4|Header 4|2
+Res_49.9R_0805|Resistor|R1, R2, R3, R4|RES_0805_TOP|Res|4
+Res_2.2K_0805|Resistor|R5, R6, R7, R10, R12, R13, R15, R16, R17|RES_0805_TOP|Res|9
+Res_4.7K_0805|Resistor|R8, R9, R14, R20, R24, R25, R26, R28|RES_0805_TOP|Res|8
+Res_1.5K_0805|Resistor|R11|RES_0805_TOP|Res|1
+Res_120R_0805|Resistor|R18|RES_0805_TOP|Res|1
+Res_47R_0805|Resistor|R19|RES_0805_TOP|Res|1
+Res_0R_0603|Resistor|R21, R22|RES_0805_TOP|Res|2
+Res_330R_0805|Resistor|R23, R27, R29|RES_0805_TOP|Res|3
+BUTTON 2P|Switch|S1|Nut nhan 2 chan  dung|BUTTON 2P|1
+STM32F107|STM32 ARM-based 32-bit MCU with 128 Kbytes Flash, 64-pin LQFP, Industrial Temperature|U1|LQFP64_N|STM32F103RBT6|1
+DP83848CVV||U2|LQFP48|DP83848CVV|1
+S25FL204K||U3|SOIC_8|S25FL204K|1

@@ -1,0 +1,25 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+bts_stt_rtc                                                       0x0200      26
+adc_data                                                          0x021A       6
+input_index                                                       0x0220       1
+USART_DATA                                                        0x0221      50
+usart_time_out                                                    0x0253       1
+usart_p                                                           0x0254       2
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+MyID                                                              R4           1
+cpu_cmd                                                           R5,R6        2
+omc_stt                                                           R7,R8        2
+flag_for_update                                                   R9,R10       2
+flag_for_volt                                                     R11,R12      2
+usart_status                                                      R3           1
+index                                                             R14          1
+usart_flag                                                        R13          1

@@ -1,0 +1,88 @@
+// Define hardware for Basic Board
+// 10 Relays OMC system for indicate something Wrong
+// Define hardware
+unsigned char MyID =1;//OMC's ID :01~09
+#define Relay1 PORTB.0// for water detected
+#define Relay2 PORTD.7// Temp > 25oC
+#define Relay3 PORTD.6//Humi > 80 %RH
+#define Relay4 PORTD.5 // for smoke detected
+#define Relay5 PORTD.4 // Fired, temp > 60oC
+#define Relay6 PORTB.5 // AC Volt < 180V
+#define Relay7 PORTB.4 //DC Volt < 43V
+#define Relay8 PORTB.3 // System failre
+#define Relay9 PORTB.2 // Lost power (mat dien luoi)
+#define Relay10 PORTB.1
+
+
+
+#define RS485_TxD PORTC.5
+#define IDC_Send DDRC.4=1;PORTC.4=0;
+#define IDC_Standby DDRC.4=0;PORTC.4=1;
+
+#define ALL_RL_ON   Relay1=1;Relay2=1;Relay3=1;Relay4=1;Relay5=1;Relay6=1;Relay7=1;Relay8=1;Relay9=1;Relay10=1;
+#define ALL_RL_OFF   Relay1=0;Relay2=0;Relay3=0;Relay4=0;Relay5=0;Relay6=0;Relay7=0;Relay8=0;Relay9=0;Relay10=0;
+unsigned int cpu_cmd,omc_stt;
+typedef struct
+ {
+	unsigned char sec,min,hr,day,date,month,year;
+  float temp;
+ }  RTC_Time;     
+ 
+ typedef struct
+{
+int temp;
+int humi;
+} Sensor;
+
+typedef struct
+{
+	RTC_Time bts_rtc;
+	Sensor Int_Sensor;
+	Sensor Ex_Sensor;
+	unsigned char water;
+	unsigned char smoke;
+	unsigned char gate;
+	int dc_vol;
+	int ac_vol;
+} BTS_RTC;
+BTS_RTC bts_stt_rtc; 
+//unsigned char control_stt; //luu trang thai bi dieu khien 
+#define FIRST_ADC_INPUT 1
+#define LAST_ADC_INPUT 3
+unsigned int adc_data[LAST_ADC_INPUT-FIRST_ADC_INPUT+1];
+#define ADC_VREF_TYPE 0x40
+int flag_for_update=0,flag_for_volt=0;
+#ifndef RXB8
+#define RXB8 1
+#endif
+
+#ifndef TXB8
+#define TXB8 0
+#endif
+
+#ifndef UPE
+#define UPE 2
+#endif
+
+#ifndef DOR
+#define DOR 3
+#endif
+
+#ifndef FE
+#define FE 4
+#endif
+
+#ifndef UDRE
+#define UDRE 5
+#endif
+
+#ifndef RXC
+#define RXC 7
+#endif
+
+#define FRAMING_ERROR (1<<FE)
+#define PARITY_ERROR (1<<UPE)
+#define DATA_OVERRUN (1<<DOR)
+#define DATA_REGISTER_EMPTY (1<<UDRE)
+#define RX_COMPLETE (1<<RXC)
+char usart_status;

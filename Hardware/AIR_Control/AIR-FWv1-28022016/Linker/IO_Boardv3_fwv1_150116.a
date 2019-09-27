@@ -1,0 +1,850 @@
+;/*****************************************************
+;This program was produced by the
+;CodeWizardAVR V2.05.3 Standard
+;Automatic Program Generator
+;© Copyright 1998-2011 Pavel Haiduc, HP InfoTech s.r.l.
+;http://www.hpinfotech.com
+;
+;Project : BTS Monitor
+;Version : For IO_Board v3
+;Date    : 1/15/2016
+;Author  : Tuan
+;Company : ATTECH
+;Comments: This code for IO_Board v3
+;- Have 9 relay with 9 DryOut "NC" for indicate ERROR : Water inside; Low AC Power; Low DC Power;
+;- Measure AC Voltage by Transformer 220V to 12V AC
+;- Measure DC Voltage 48V DC
+;- Have 2 DryIN for Gate Sensor and Smoke Sensor
+;- One ADC in for detect Water inside
+;- One Relay to power 12V DC for Smoke Sensor
+;
+;
+;Chip type               : ATmega88
+;Program type            : Application
+;AVR Core Clock frequency: 16.000000 MHz
+;Memory model            : Small
+;External RAM size       : 0
+;Data Stack size         : 256
+;*****************************************************/
+;
+;#include <mega88.h>
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x01
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x0E
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_adc_noise_red=0x02
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powerdown=0x04
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_powersave=0x06
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_standby=0x0C
+;PCODE: $00000008 VOL: 0
+	.SET power_ctrl_reg=smcr
+;PCODE: $00000009 VOL: 0
+	#endif
+;PCODE: $0000000A VOL: 0
+;PCODE: $0000000B VOL: 0
+;#include <delay.h>
+;// Standard Input/Output functions
+;#include <stdio.h>
+;// Define hardware for AIR Board
+;// 2 Relay to BTS system for indicate Air Wrong
+;#define Relay1 PORTD.4
+;#define Relay2 PORTD.3
+;
+;// 2 Relay control Khoi Dong Tu de mo dieu hoa
+;#define AiR1 PORTC.2
+;#define AiR2 PORTC.1
+;
+;#define RS485_TxD PORTC.5
+;
+;//#define IND_COM_OPP  DDRB.5=1;PORTB.5=0// Output Push Pull wait for send data over USART
+;//#define IND_COM_IPU   DDRB.5=0;PORTB.5=1// Input Pull Up wait for having data over USART
+;//#define IND_COM_PIN   PINB.5// PIN indicate data for reciver and send data
+;#define LG_IN_1 PIND.3
+;#define LG_IN_2 PIND.2
+;
+;//#define LG_IN_3 PIND.6
+;//#define LG_IN_4 PIND.7
+;//#define LG_IN_5 PINB.0
+;//#define LG_IN_6 PINB.1
+;//#define LG_IN_7 PINB.2
+;//#define LG_IN_8 PINB.3
+;//#define GET_LG_STT (LG_IN_1<<7)+(LG_IN_2<<6)+(LG_IN_3<<5)+(LG_IN_4<<4)+(LG_IN_5<<3)+(LG_IN_6<<2)+(LG_IN_7<<1)+LG_IN_8
+;//#define GET_RL_STT (Relay1<<7)+(Relay2<<6)+(Relay3<<5)+(Relay4<<4)+(Relay5<<3)+(Relay6<<2)+(Relay7<<1)+Relay8
+;#define ALL_RL_ON   Relay1=1;Relay2=1
+;#define ALL_RL_OFF   Relay1=0;Relay2=0
+;unsigned char control_stt; //luu trang thai bi dieu khien
+;int flag_for_update=0;
+;//Khoang 60s se nhay vao day 1 lan
+;// Timer 0 overflow interrupt service routine
+;interrupt [TIM0_OVF] void timer0_ovf_isr(void)
+; 0000 0042 {
+
+	.CSEG
+;PCODE: $0000000C VOL: 0
+;PCODE: $0000000D VOL: 0
+; 0000 0043 // Place your code here
+; 0000 0044 flag_for_update++;
+;PCODE: $0000000E VOL: 0
+;PCODE: $0000000F VOL: 0
+;PCODE: $00000010 VOL: 0
+; 0000 0045 }
+;PCODE: $00000011 VOL: 0
+;PCODE: $00000012 VOL: 0
+;PCODE: $00000013 VOL: 0
+;//#define ADC_VREF_TYPE 0x40
+;
+;//// Read the AD conversion result
+;//unsigned int read_adc(unsigned char adc_input)
+;//{
+;//ADMUX=adc_input | (ADC_VREF_TYPE & 0xff);
+;//// Delay needed for the stabilization of the ADC input voltage
+;//delay_us(10);
+;//// Start the AD conversion
+;//ADCSRA|=0x40;
+;//// Wait for the AD conversion to complete
+;//while ((ADCSRA & 0x10)==0);
+;//ADCSRA|=0x10;
+;//return ADCW;
+;//}
+;
+;#ifndef RXB8
+;#define RXB8 1
+;#endif
+;
+;#ifndef TXB8
+;#define TXB8 0
+;#endif
+;
+;#ifndef UPE
+;#define UPE 2
+;#endif
+;
+;#ifndef DOR
+;#define DOR 3
+;#endif
+;
+;#ifndef FE
+;#define FE 4
+;#endif
+;
+;#ifndef UDRE
+;#define UDRE 5
+;#endif
+;
+;#ifndef RXC
+;#define RXC 7
+;#endif
+;
+;#define FRAMING_ERROR (1<<FE)
+;#define PARITY_ERROR (1<<UPE)
+;#define DATA_OVERRUN (1<<DOR)
+;#define DATA_REGISTER_EMPTY (1<<UDRE)
+;#define RX_COMPLETE (1<<RXC)
+;
+;
+;//Ban tin tu MB
+;//sprintf(data_buffer,">MBS:%x.%x.%x.%x!<\r\n@%c",bts_stt_rtc.Int_Sensor.temp,bts_stt_rtc.Int_Sensor.humi,bts_stt_rtc.Ex_Sensor.temp,bts_stt_rtc.Ex_Sensor.humi,0);
+;char USART_DATA[50];
+;unsigned char index=0;
+;char *usart_p;
+;// USART Receiver interrupt service routine
+;interrupt [USART_RXC] void usart_rx_isr(void)
+; 0000 0080 {
+;PCODE: $00000014 VOL: 0
+;PCODE: $00000015 VOL: 0
+; 0000 0081 char status,data;
+; 0000 0082 status=UCSR0A;
+;PCODE: $00000016 VOL: 0
+;	status -> R17
+;	data -> R16
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+; 0000 0083 data=UDR0;
+;PCODE: $00000019 VOL: 0
+;PCODE: $0000001A VOL: 0
+; 0000 0084 if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
+;PCODE: $0000001B VOL: 0
+;PCODE: $0000001C VOL: 0
+;PCODE: $0000001D VOL: 0
+; 0000 0085    {
+; 0000 0086      //Du lieu nhan duoc tu RS485 dc luu vao mang USART_DATA[50] va se xu ly sau do
+; 0000 0087      if(index==0) usart_p=USART_DATA;
+;PCODE: $0000001E VOL: 0
+;PCODE: $0000001F VOL: 0
+;PCODE: $00000020 VOL: 0
+;PCODE: $00000021 VOL: 0
+; 0000 0088      USART_DATA[index++]=data;
+;PCODE: $00000022 VOL: 0
+;PCODE: $00000023 VOL: 0
+;PCODE: $00000024 VOL: 0
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+;PCODE: $00000027 VOL: 0
+; 0000 0089      if(index==49) index=0;// Gioi han ban tin < 50 ky tu
+;PCODE: $00000028 VOL: 0
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+;PCODE: $0000002B VOL: 0
+; 0000 008A    }
+;PCODE: $0000002C VOL: 0
+; 0000 008B }
+;PCODE: $0000002D VOL: 0
+;PCODE: $0000002E VOL: 0
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+;PCODE: $00000031 VOL: 0
+;
+;//union floatnum
+;//{
+;// float temp;
+;// unsigned char byte[4];
+;//} floatnum;
+;typedef struct
+; {
+;	unsigned char sec,min,hr,day,date,month,year;
+;  float temp;
+; }  RTC_Time;
+;
+; typedef struct
+;{
+;int temp;
+;int humi;
+;} Sensor;
+;
+;typedef struct
+;{
+;	RTC_Time bts_rtc;
+;	Sensor Int_Sensor;
+;	Sensor Ex_Sensor;
+;	unsigned char water;
+;	unsigned char smoke;
+;	unsigned char gate;
+;	unsigned char dc_vol;
+;	unsigned char ac_vol;
+;} BTS_RTC;
+;BTS_RTC bts_stt_rtc;
+;
+;
+;
+;
+;// Declare your global variables here
+;//unsigned char LG_STT=0,LG_TEMP=0;// Trang thai cua muc logic
+;void main(void)
+; 0000 00B1 {
+;PCODE: $00000032 VOL: 0
+; 0000 00B2 // Declare your local variables here
+; 0000 00B3 unsigned char ii;
+; 0000 00B4 
+; 0000 00B5 // Crystal Oscillator division factor: 1
+; 0000 00B6 #pragma optsize-
+; 0000 00B7 CLKPR=0x80;
+;	ii -> R17
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+; 0000 00B8 CLKPR=0x00;
+;PCODE: $00000035 VOL: 0
+;PCODE: $00000036 VOL: 0
+; 0000 00B9 #ifdef _OPTIMIZE_SIZE_
+; 0000 00BA #pragma optsize+
+; 0000 00BB #endif
+; 0000 00BC 
+; 0000 00BD // Input/Output Ports initialization
+; 0000 00BE // Port B initialization
+; 0000 00BF // Func7=In Func6=In Func5=In Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
+; 0000 00C0 // State7=T State6=T State5=T State4=0 State3=0 State2=0 State1=0 State0=0
+; 0000 00C1 PORTB=0x00;
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+; 0000 00C2 DDRB=0;
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+; 0000 00C3 
+; 0000 00C4 // Port C initialization
+; 0000 00C5 // Func6=In Func5=Out Func4=In Func3=In Func2=Out Func1=Out Func0=In
+; 0000 00C6 // State6=T State5=0 State4=T State3=T State2=0 State1=0 State0=T
+; 0000 00C7 PORTC=0x00;
+;PCODE: $0000003B VOL: 0
+;PCODE: $0000003C VOL: 0
+; 0000 00C8 DDRC=0x26;
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0
+; 0000 00C9 
+; 0000 00CA // Port D initialization
+; 0000 00CB // Func7=In Func6=In Func5=In Func4=Out Func3=Out Func2=In Func1=In Func0=In
+; 0000 00CC // State7=T State6=T State5=T State4=0 State3=0 State2=T State1=T State0=T
+; 0000 00CD PORTD=0x00;
+;PCODE: $0000003F VOL: 0
+;PCODE: $00000040 VOL: 0
+; 0000 00CE DDRD=0x18;
+;PCODE: $00000041 VOL: 0
+;PCODE: $00000042 VOL: 0
+; 0000 00CF 
+; 0000 00D0 
+; 0000 00D1 // Timer/Counter 1 initialization
+; 0000 00D2 // Clock source: System Clock
+; 0000 00D3 // Clock value: Timer1 Stopped
+; 0000 00D4 // Mode: Normal top=0xFFFF
+; 0000 00D5 // OC1A output: Discon.
+; 0000 00D6 // OC1B output: Discon.
+; 0000 00D7 // Noise Canceler: Off
+; 0000 00D8 // Input Capture on Falling Edge
+; 0000 00D9 // Timer1 Overflow Interrupt: Off
+; 0000 00DA // Input Capture Interrupt: Off
+; 0000 00DB // Compare A Match Interrupt: Off
+; 0000 00DC // Compare B Match Interrupt: Off
+; 0000 00DD TCCR1A=0x00;
+;PCODE: $00000043 VOL: 0
+;PCODE: $00000044 VOL: 0
+; 0000 00DE TCCR1B=0x00;
+;PCODE: $00000045 VOL: 0
+;PCODE: $00000046 VOL: 0
+; 0000 00DF TCNT1H=0x00;
+;PCODE: $00000047 VOL: 0
+;PCODE: $00000048 VOL: 0
+; 0000 00E0 TCNT1L=0x00;
+;PCODE: $00000049 VOL: 0
+;PCODE: $0000004A VOL: 0
+; 0000 00E1 ICR1H=0x00;
+;PCODE: $0000004B VOL: 0
+;PCODE: $0000004C VOL: 0
+; 0000 00E2 ICR1L=0x00;
+;PCODE: $0000004D VOL: 0
+;PCODE: $0000004E VOL: 0
+; 0000 00E3 OCR1AH=0x00;
+;PCODE: $0000004F VOL: 0
+;PCODE: $00000050 VOL: 0
+; 0000 00E4 OCR1AL=0x00;
+;PCODE: $00000051 VOL: 0
+;PCODE: $00000052 VOL: 0
+; 0000 00E5 OCR1BH=0x00;
+;PCODE: $00000053 VOL: 0
+;PCODE: $00000054 VOL: 0
+; 0000 00E6 OCR1BL=0x00;
+;PCODE: $00000055 VOL: 0
+;PCODE: $00000056 VOL: 0
+; 0000 00E7 
+; 0000 00E8 // Timer/Counter 2 initialization
+; 0000 00E9 // Clock source: System Clock
+; 0000 00EA // Clock value: Timer2 Stopped
+; 0000 00EB // Mode: Normal top=0xFF
+; 0000 00EC // OC2A output: Disconnected
+; 0000 00ED // OC2B output: Disconnected
+; 0000 00EE ASSR=0x00;
+;PCODE: $00000057 VOL: 0
+;PCODE: $00000058 VOL: 0
+; 0000 00EF TCCR2A=0x00;
+;PCODE: $00000059 VOL: 0
+;PCODE: $0000005A VOL: 0
+; 0000 00F0 TCCR2B=0x00;
+;PCODE: $0000005B VOL: 0
+;PCODE: $0000005C VOL: 0
+; 0000 00F1 TCNT2=0x00;
+;PCODE: $0000005D VOL: 0
+;PCODE: $0000005E VOL: 0
+; 0000 00F2 OCR2A=0x00;
+;PCODE: $0000005F VOL: 0
+;PCODE: $00000060 VOL: 0
+; 0000 00F3 OCR2B=0x00;
+;PCODE: $00000061 VOL: 0
+;PCODE: $00000062 VOL: 0
+; 0000 00F4 
+; 0000 00F5 // External Interrupt(s) initialization
+; 0000 00F6 // INT0: Off
+; 0000 00F7 // INT1: Off
+; 0000 00F8 // Interrupt on any change on pins PCINT0-7: Off
+; 0000 00F9 // Interrupt on any change on pins PCINT8-14: Off
+; 0000 00FA // Interrupt on any change on pins PCINT16-23: Off
+; 0000 00FB EICRA=0x00;
+;PCODE: $00000063 VOL: 0
+;PCODE: $00000064 VOL: 0
+; 0000 00FC EIMSK=0x00;
+;PCODE: $00000065 VOL: 0
+;PCODE: $00000066 VOL: 0
+; 0000 00FD PCICR=0x00;
+;PCODE: $00000067 VOL: 0
+;PCODE: $00000068 VOL: 0
+; 0000 00FE 
+; 0000 00FF 
+; 0000 0100 // Timer/Counter 0 initialization
+; 0000 0101 // Clock source: System Clock
+; 0000 0102 // Clock value: 15.625 kHz
+; 0000 0103 // Mode: Normal top=0xFF
+; 0000 0104 // OC0A output: Disconnected
+; 0000 0105 // OC0B output: Disconnected
+; 0000 0106 TCCR0A=0x00;
+;PCODE: $00000069 VOL: 0
+;PCODE: $0000006A VOL: 0
+; 0000 0107 TCCR0B=0x05;
+;PCODE: $0000006B VOL: 0
+;PCODE: $0000006C VOL: 0
+; 0000 0108 TCNT0=0x00;
+;PCODE: $0000006D VOL: 0
+;PCODE: $0000006E VOL: 0
+; 0000 0109 OCR0A=0x00;
+;PCODE: $0000006F VOL: 0
+;PCODE: $00000070 VOL: 0
+; 0000 010A OCR0B=0x00;
+;PCODE: $00000071 VOL: 0
+;PCODE: $00000072 VOL: 0
+; 0000 010B TIMSK0=0x01;
+;PCODE: $00000073 VOL: 0
+;PCODE: $00000074 VOL: 0
+; 0000 010C 
+; 0000 010D 
+; 0000 010E // Timer/Counter 1 Interrupt(s) initialization
+; 0000 010F TIMSK1=0x00;
+;PCODE: $00000075 VOL: 0
+;PCODE: $00000076 VOL: 0
+; 0000 0110 
+; 0000 0111 // Timer/Counter 2 Interrupt(s) initialization
+; 0000 0112 TIMSK2=0x00;
+;PCODE: $00000077 VOL: 0
+;PCODE: $00000078 VOL: 0
+; 0000 0113 
+; 0000 0114 // USART initialization
+; 0000 0115 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 0116 // USART Receiver: On
+; 0000 0117 // USART Transmitter: On
+; 0000 0118 // USART0 Mode: Asynchronous
+; 0000 0119 // USART Baud Rate: 115200 (Double Speed Mode)
+; 0000 011A UCSR0A=0x02;
+;PCODE: $00000079 VOL: 0
+;PCODE: $0000007A VOL: 0
+; 0000 011B UCSR0B=0x98;
+;PCODE: $0000007B VOL: 0
+;PCODE: $0000007C VOL: 0
+; 0000 011C UCSR0C=0x06;
+;PCODE: $0000007D VOL: 0
+;PCODE: $0000007E VOL: 0
+; 0000 011D UBRR0H=0x00;
+;PCODE: $0000007F VOL: 0
+;PCODE: $00000080 VOL: 0
+; 0000 011E UBRR0L=0x10;
+;PCODE: $00000081 VOL: 0
+;PCODE: $00000082 VOL: 0
+; 0000 011F 
+; 0000 0120 // Analog Comparator initialization
+; 0000 0121 // Analog Comparator: Off
+; 0000 0122 // Analog Comparator Input Capture by Timer/Counter 1: Off
+; 0000 0123 ACSR=0x80;
+;PCODE: $00000083 VOL: 0
+;PCODE: $00000084 VOL: 0
+; 0000 0124 ADCSRB=0x00;
+;PCODE: $00000085 VOL: 0
+;PCODE: $00000086 VOL: 0
+; 0000 0125 DIDR1=0x00;
+;PCODE: $00000087 VOL: 0
+;PCODE: $00000088 VOL: 0
+; 0000 0126 
+; 0000 0127 // ADC initialization
+; 0000 0128 // ADC disabled
+; 0000 0129 ADCSRA=0x00;
+;PCODE: $00000089 VOL: 0
+;PCODE: $0000008A VOL: 0
+; 0000 012A 
+; 0000 012B // SPI initialization
+; 0000 012C // SPI disabled
+; 0000 012D SPCR=0x00;
+;PCODE: $0000008B VOL: 0
+;PCODE: $0000008C VOL: 0
+; 0000 012E 
+; 0000 012F // TWI initialization
+; 0000 0130 // TWI disabled
+; 0000 0131 TWCR=0x00;
+;PCODE: $0000008D VOL: 0
+;PCODE: $0000008E VOL: 0
+; 0000 0132 
+; 0000 0133 // Global enable interrupts
+; 0000 0134 #asm("sei")
+;PCODE: $0000008F VOL: 0
+	sei
+;PCODE: $00000090 VOL: 0
+; 0000 0135 delay_ms(1000);
+;PCODE: $00000091 VOL: 0
+;PCODE: $00000092 VOL: 0
+; 0000 0136 //Pull up for transmit data
+; 0000 0137 RS485_TxD=1;
+;PCODE: $00000093 VOL: 0
+;PCODE: $00000094 VOL: 0
+; 0000 0138 printf("\r\n>AIR Board v1 fwv1 26/02/2016\r\n");
+;PCODE: $00000095 VOL: 0
+;PCODE: $00000096 VOL: 0
+;PCODE: $00000097 VOL: 0
+;PCODE: $00000098 VOL: 0
+;PCODE: $00000099 VOL: 0
+;PCODE: $0000009A VOL: 0
+;PCODE: $0000009B VOL: 0
+; 0000 0139 //c=(unsigned char*)&a;
+; 0000 013A //printf("In a %x %x %x %x",*c,c[1],c[2],c[3]);
+; 0000 013B //bts_stt_rtc.water=0;
+; 0000 013C //bts_stt_rtc.smoke=0;
+; 0000 013D //printf(">IO Board v3 fwv1\r\n");
+; 0000 013E RS485_TxD=0; //pull down for receiver data
+;PCODE: $0000009C VOL: 0
+;PCODE: $0000009D VOL: 0
+; 0000 013F //Turn on power Smoke Sensor
+; 0000 0140 
+; 0000 0141 //IND_COM_IPU; // Wait for reciver data
+; 0000 0142 //delay_ms(1000);
+; 0000 0143 //while(!IND_COM_PIN);//wait for data line free
+; 0000 0144 //IND_COM_OPP;// Pull Indicate PIN to GND for sending data
+; 0000 0145 //printf(">IO Board v2 fwv1\r\n");
+; 0000 0146 ////Doc trang thai cac cong logic luc khoi tao
+; 0000 0147 //LG_STT=GET_LG_STT;
+; 0000 0148 //printf(">%c%c\r\n",GET_LG_STT,GET_RL_STT);  //">[Byte1][Byte2] \r\n"
+; 0000 0149 //IND_COM_IPU; // Free line and wait for reciver data
+; 0000 014A ALL_RL_ON;
+;PCODE: $0000009E VOL: 0
+;PCODE: $0000009F VOL: 0
+;PCODE: $000000A0 VOL: 0
+;PCODE: $000000A1 VOL: 0
+; 0000 014B delay_ms(1000);
+;PCODE: $000000A2 VOL: 0
+;PCODE: $000000A3 VOL: 0
+; 0000 014C ALL_RL_OFF;
+;PCODE: $000000A4 VOL: 0
+;PCODE: $000000A5 VOL: 0
+;PCODE: $000000A6 VOL: 0
+;PCODE: $000000A7 VOL: 0
+; 0000 014D usart_p=USART_DATA;
+;PCODE: $000000A8 VOL: 0
+;PCODE: $000000A9 VOL: 0
+; 0000 014E while (1)
+;PCODE: $000000AA VOL: 0
+; 0000 014F       {
+; 0000 0150       // Place your code here
+; 0000 0151       //Neu index>0 thi co du lieu; doc du lieu, xu ly du lieu, xu ly xong cho index=0 OK
+; 0000 0152       if(index>0)
+;PCODE: $000000AB VOL: 0
+;PCODE: $000000AC VOL: 0
+;PCODE: $000000AD VOL: 0
+; 0000 0153       {
+; 0000 0154       if((*usart_p=='>')&&(*(usart_p+1)=='M')&&(*(usart_p+2)=='B')&&(*(usart_p+3)=='S')&&(*(usart_p+20)=='!')&&(*(usart_p+18)=='.'))  //Du lieu ve sensor tu Master Board, nhan day du, dung cu phap
+;PCODE: $000000AE VOL: 0
+;PCODE: $000000AF VOL: 0
+;PCODE: $000000B0 VOL: 0
+;PCODE: $000000B1 VOL: 0
+;PCODE: $000000B2 VOL: 0
+;PCODE: $000000B3 VOL: 0
+;PCODE: $000000B4 VOL: 0
+;PCODE: $000000B5 VOL: 0
+;PCODE: $000000B6 VOL: 0
+;PCODE: $000000B7 VOL: 0
+;PCODE: $000000B8 VOL: 0
+;PCODE: $000000B9 VOL: 0
+;PCODE: $000000BA VOL: 0
+;PCODE: $000000BB VOL: 0
+;PCODE: $000000BC VOL: 0
+;PCODE: $000000BD VOL: 0
+;PCODE: $000000BE VOL: 0
+;PCODE: $000000BF VOL: 0
+;PCODE: $000000C0 VOL: 0
+;PCODE: $000000C1 VOL: 0
+;PCODE: $000000C2 VOL: 0
+;PCODE: $000000C3 VOL: 0
+;PCODE: $000000C4 VOL: 0
+;PCODE: $000000C5 VOL: 0
+;PCODE: $000000C6 VOL: 0
+;PCODE: $000000C7 VOL: 0
+;PCODE: $000000C8 VOL: 0
+;PCODE: $000000C9 VOL: 0
+; 0000 0155       {
+; 0000 0156             //ALL_RL_ON;
+; 0000 0157             bts_stt_rtc.Int_Sensor.temp=(*(usart_p+5)<<8)+*(usart_p+7);
+;PCODE: $000000CA VOL: 0
+;PCODE: $000000CB VOL: 0
+;PCODE: $000000CC VOL: 0
+;PCODE: $000000CD VOL: 0
+;PCODE: $000000CE VOL: 0
+;PCODE: $000000CF VOL: 0
+;PCODE: $000000D0 VOL: 0
+;PCODE: $000000D1 VOL: 0
+;PCODE: $000000D2 VOL: 0
+;PCODE: $000000D3 VOL: 0
+; 0000 0158             bts_stt_rtc.Int_Sensor.humi=(*(usart_p+9)<<8)+*(usart_p+11);
+;PCODE: $000000D4 VOL: 0
+;PCODE: $000000D5 VOL: 0
+;PCODE: $000000D6 VOL: 0
+;PCODE: $000000D7 VOL: 0
+;PCODE: $000000D8 VOL: 0
+;PCODE: $000000D9 VOL: 0
+;PCODE: $000000DA VOL: 0
+;PCODE: $000000DB VOL: 0
+;PCODE: $000000DC VOL: 0
+;PCODE: $000000DD VOL: 0
+; 0000 0159             bts_stt_rtc.Ex_Sensor.temp=(*(usart_p+13)<<8)+*(usart_p+15);
+;PCODE: $000000DE VOL: 0
+;PCODE: $000000DF VOL: 0
+;PCODE: $000000E0 VOL: 0
+;PCODE: $000000E1 VOL: 0
+;PCODE: $000000E2 VOL: 0
+;PCODE: $000000E3 VOL: 0
+;PCODE: $000000E4 VOL: 0
+;PCODE: $000000E5 VOL: 0
+;PCODE: $000000E6 VOL: 0
+;PCODE: $000000E7 VOL: 0
+; 0000 015A             bts_stt_rtc.Ex_Sensor.humi=(*(usart_p+17)<<8)+*(usart_p+19);
+;PCODE: $000000E8 VOL: 0
+;PCODE: $000000E9 VOL: 0
+;PCODE: $000000EA VOL: 0
+;PCODE: $000000EB VOL: 0
+;PCODE: $000000EC VOL: 0
+;PCODE: $000000ED VOL: 0
+;PCODE: $000000EE VOL: 0
+;PCODE: $000000EF VOL: 0
+;PCODE: $000000F0 VOL: 0
+;PCODE: $000000F1 VOL: 0
+; 0000 015B             //delay_ms(10);
+; 0000 015C             //RS485_TxD=1;
+; 0000 015D             //printf( "Sensor: %d/%d-%d/%d\r\n",bts_stt_rtc.Int_Sensor.temp,bts_stt_rtc.Int_Sensor.humi,bts_stt_rtc.Ex_Sensor.temp,bts_stt_rtc.Ex_Sensor.humi);
+; 0000 015E             //RS485_TxD=0;
+; 0000 015F             for(ii=0;ii<21;ii++)
+;PCODE: $000000F2 VOL: 0
+;PCODE: $000000F3 VOL: 0
+;PCODE: $000000F4 VOL: 0
+;PCODE: $000000F5 VOL: 0
+;PCODE: $000000F6 VOL: 0
+;PCODE: $000000F7 VOL: 0
+;PCODE: $000000F8 VOL: 0
+;PCODE: $000000F9 VOL: 0
+;PCODE: $000000FA VOL: 0
+; 0000 0160             {
+; 0000 0161                 USART_DATA[ii]=0;
+;PCODE: $000000FB VOL: 0
+;PCODE: $000000FC VOL: 0
+;PCODE: $000000FD VOL: 0
+;PCODE: $000000FE VOL: 0
+;PCODE: $000000FF VOL: 0
+; 0000 0162             }
+;PCODE: $00000100 VOL: 0
+;PCODE: $00000101 VOL: 0
+;PCODE: $00000102 VOL: 0
+;PCODE: $00000103 VOL: 0
+;PCODE: $00000104 VOL: 0
+; 0000 0163             index=0;//Xu ly xong du lieu ^^
+;PCODE: $00000105 VOL: 0
+; 0000 0164       }
+; 0000 0165       else if((*usart_p=='>')&&(*(usart_p+1)=='M')&&(*(usart_p+2)=='B')&&(*(usart_p+3)=='C')&&(*(usart_p+4)=='A')&&(*(usart_p+23)=='!'))  //Du lieu ve sensor tu Master Board, nhan day du, dung cu phap
+;PCODE: $00000106 VOL: 0
+;PCODE: $00000107 VOL: 0
+;PCODE: $00000108 VOL: 0
+;PCODE: $00000109 VOL: 0
+;PCODE: $0000010A VOL: 0
+;PCODE: $0000010B VOL: 0
+;PCODE: $0000010C VOL: 0
+;PCODE: $0000010D VOL: 0
+;PCODE: $0000010E VOL: 0
+;PCODE: $0000010F VOL: 0
+;PCODE: $00000110 VOL: 0
+;PCODE: $00000111 VOL: 0
+;PCODE: $00000112 VOL: 0
+;PCODE: $00000113 VOL: 0
+;PCODE: $00000114 VOL: 0
+;PCODE: $00000115 VOL: 0
+;PCODE: $00000116 VOL: 0
+;PCODE: $00000117 VOL: 0
+;PCODE: $00000118 VOL: 0
+;PCODE: $00000119 VOL: 0
+;PCODE: $0000011A VOL: 0
+;PCODE: $0000011B VOL: 0
+;PCODE: $0000011C VOL: 0
+;PCODE: $0000011D VOL: 0
+;PCODE: $0000011E VOL: 0
+;PCODE: $0000011F VOL: 0
+;PCODE: $00000120 VOL: 0
+;PCODE: $00000121 VOL: 0
+;PCODE: $00000122 VOL: 0
+;PCODE: $00000123 VOL: 0
+; 0000 0166       {
+; 0000 0167             //ALL_RL_ON;
+; 0000 0168             //Doc trang thai dieu khien
+; 0000 0169             control_stt=*(usart_p+8);
+;PCODE: $00000124 VOL: 0
+;PCODE: $00000125 VOL: 0
+;PCODE: $00000126 VOL: 0
+; 0000 016A             if(control_stt>0)  flag_for_update=1800;// Neu co lenh dieu khien AIR thi thuc hien dieu khien ngay
+;PCODE: $00000127 VOL: 0
+;PCODE: $00000128 VOL: 0
+;PCODE: $00000129 VOL: 0
+;PCODE: $0000012A VOL: 0
+;PCODE: $0000012B VOL: 0
+; 0000 016B             //=> Neu muon tat dieu hoa??? Bit cao nhat cua byte nay phai set la 1 neu muon control, neu set la 0, coi nhu ko co nghia. Bit0 = AIR1; Bit1 = AIR2;
+; 0000 016C             //bts_stt_rtc.Int_Sensor.temp=(*(usart_p+5)<<8)+*(usart_p+7);
+; 0000 016D             //bts_stt_rtc.Int_Sensor.humi=(*(usart_p+9)<<8)+*(usart_p+11);
+; 0000 016E             //bts_stt_rtc.Ex_Sensor.temp=(*(usart_p+13)<<8)+*(usart_p+15);
+; 0000 016F             //bts_stt_rtc.Ex_Sensor.humi=(*(usart_p+17)<<8)+*(usart_p+19);
+; 0000 0170             //delay_ms(10);
+; 0000 0171             //RS485_TxD=1;
+; 0000 0172             //printf( "Sensor: %d/%d-%d/%d\r\n",bts_stt_rtc.Int_Sensor.temp,bts_stt_rtc.Int_Sensor.humi,bts_stt_rtc.Ex_Sensor.temp,bts_stt_rtc.Ex_Sensor.humi);
+; 0000 0173             //RS485_TxD=0;
+; 0000 0174             for(ii=0;ii<21;ii++)
+;PCODE: $0000012C VOL: 0
+;PCODE: $0000012D VOL: 0
+;PCODE: $0000012E VOL: 0
+;PCODE: $0000012F VOL: 0
+;PCODE: $00000130 VOL: 0
+;PCODE: $00000131 VOL: 0
+;PCODE: $00000132 VOL: 0
+;PCODE: $00000133 VOL: 0
+;PCODE: $00000134 VOL: 0
+;PCODE: $00000135 VOL: 0
+; 0000 0175             {
+; 0000 0176                 USART_DATA[ii]=0;
+;PCODE: $00000136 VOL: 0
+;PCODE: $00000137 VOL: 0
+;PCODE: $00000138 VOL: 0
+;PCODE: $00000139 VOL: 0
+;PCODE: $0000013A VOL: 0
+; 0000 0177             }
+;PCODE: $0000013B VOL: 0
+;PCODE: $0000013C VOL: 0
+;PCODE: $0000013D VOL: 0
+;PCODE: $0000013E VOL: 0
+;PCODE: $0000013F VOL: 0
+; 0000 0178             index=0;//Xu ly xong du lieu ^^
+;PCODE: $00000140 VOL: 0
+; 0000 0179       }
+; 0000 017A       else usart_p++;
+;PCODE: $00000141 VOL: 0
+;PCODE: $00000142 VOL: 0
+;PCODE: $00000143 VOL: 0
+;PCODE: $00000144 VOL: 0
+;PCODE: $00000145 VOL: 0
+; 0000 017B       //RS485_TxD=1;
+; 0000 017C       //printf("AIR:%s\r\n",USART_DATA);
+; 0000 017D       //RS485_TxD=0;
+; 0000 017E 
+; 0000 017F       }
+;PCODE: $00000146 VOL: 0
+;PCODE: $00000147 VOL: 0
+; 0000 0180 
+; 0000 0181       if(flag_for_update>1800)// 30s update
+;PCODE: $00000148 VOL: 0
+;PCODE: $00000149 VOL: 0
+;PCODE: $0000014A VOL: 0
+;PCODE: $0000014B VOL: 0
+; 0000 0182       {
+; 0000 0183 //            RS485_TxD=1;
+; 0000 0184 //            printf( "AIR Update!");
+; 0000 0185 //            RS485_TxD=0;
+; 0000 0186             if(control_stt>0)
+;PCODE: $0000014C VOL: 0
+;PCODE: $0000014D VOL: 0
+;PCODE: $0000014E VOL: 0
+; 0000 0187             {
+; 0000 0188                 Relay1=control_stt&0x01;
+;PCODE: $0000014F VOL: 0
+;PCODE: $00000150 VOL: 0
+;PCODE: $00000151 VOL: 0
+;PCODE: $00000152 VOL: 0
+;PCODE: $00000153 VOL: 0
+;PCODE: $00000154 VOL: 0
+;PCODE: $00000155 VOL: 0
+;PCODE: $00000156 VOL: 0
+;PCODE: $00000157 VOL: 0
+;PCODE: $00000158 VOL: 0
+; 0000 0189                 Relay2=control_stt&0x02;
+;PCODE: $00000159 VOL: 0
+;PCODE: $0000015A VOL: 0
+;PCODE: $0000015B VOL: 0
+;PCODE: $0000015C VOL: 0
+;PCODE: $0000015D VOL: 0
+;PCODE: $0000015E VOL: 0
+;PCODE: $0000015F VOL: 0
+;PCODE: $00000160 VOL: 0
+;PCODE: $00000161 VOL: 0
+;PCODE: $00000162 VOL: 0
+; 0000 018A                 control_stt=0;
+;PCODE: $00000163 VOL: 0
+; 0000 018B                 RS485_TxD=1;
+;PCODE: $00000164 VOL: 0
+;PCODE: $00000165 VOL: 0
+; 0000 018C                 printf( ">AIR:%d!<",Relay1+(Relay2<<1));
+;PCODE: $00000166 VOL: 0
+;PCODE: $00000167 VOL: 0
+;PCODE: $00000168 VOL: 0
+;PCODE: $00000169 VOL: 0
+;PCODE: $0000016A VOL: 0
+;PCODE: $0000016B VOL: 0
+;PCODE: $0000016C VOL: 0
+;PCODE: $0000016D VOL: 0
+;PCODE: $0000016E VOL: 0
+;PCODE: $0000016F VOL: 0
+;PCODE: $00000170 VOL: 0
+;PCODE: $00000171 VOL: 0
+;PCODE: $00000172 VOL: 0
+;PCODE: $00000173 VOL: 0
+;PCODE: $00000174 VOL: 0
+;PCODE: $00000175 VOL: 0
+;PCODE: $00000176 VOL: 0
+; 0000 018D                 RS485_TxD=0;
+;PCODE: $00000177 VOL: 0
+;PCODE: $00000178 VOL: 0
+; 0000 018E             }
+; 0000 018F             flag_for_update=0;
+;PCODE: $00000179 VOL: 0
+;PCODE: $0000017A VOL: 0
+; 0000 0190       }
+; 0000 0191 //      if(process_CMD)
+; 0000 0192 //           {
+; 0000 0193 //                //printf("%s",CMD);
+; 0000 0194 //                if((CMD[0]=='>')&&(CMD[1]=='s') )  // Xu ly ban tin ">s 0x0D 0x0A" --- ban tin hoi trang thai cua IO board
+; 0000 0195 //                {
+; 0000 0196 //                    //Reply with status of Relays and Logics
+; 0000 0197 //                    while(!IND_COM_PIN);//wait for data line free
+; 0000 0198 //                    IND_COM_OPP;// Pull Indicate PIN to GND for sending data
+; 0000 0199 //                    //printf(">%c%c\r\n",GET_LG_STT,GET_RL_STT);
+; 0000 019A //                    IND_COM_IPU; // Free line and wait for reciver data
+; 0000 019B //                }
+; 0000 019C //                else if((CMD[0]=='>')&&(CMD[1]=='r'))  // Process message ">r[Byte1] 0x0D 0x0A" ; control Relays
+; 0000 019D //                {
+; 0000 019E //                    Relay1=CMD[2]&0x80;
+; 0000 019F //                    Relay2=CMD[2]&0x40;
+; 0000 01A0 //                    Relay3=CMD[2]&0x20;
+; 0000 01A1 //                    Relay4=CMD[2]&0x10;
+; 0000 01A2 //                    Relay5=CMD[2]&0x8;
+; 0000 01A3 //                    Relay6=CMD[2]&0x4;
+; 0000 01A4 //                    Relay7=CMD[2]&0x2;
+; 0000 01A5 //                    Relay8=CMD[2]&0x1;
+; 0000 01A6 //                    //Reply with status of Relays and Logics
+; 0000 01A7 //                    while(!IND_COM_PIN);//wait for data line free
+; 0000 01A8 //                    IND_COM_OPP;// Pull Indicate PIN to GND for sending data
+; 0000 01A9 //                    //printf(">%c%c\r\n",GET_LG_STT,GET_RL_STT);
+; 0000 01AA //                    IND_COM_IPU; // Free line and wait for reciver data
+; 0000 01AB //                }
+; 0000 01AC //                for(index=0;index<7;index++)
+; 0000 01AD //                {
+; 0000 01AE //                    CMD[index]=0;
+; 0000 01AF //                }
+; 0000 01B0 //                index=0;
+; 0000 01B1 //                process_CMD=0;
+; 0000 01B2 //                have_data=0;
+; 0000 01B3 //           }
+; 0000 01B4 
+; 0000 01B5 //            LG_TEMP=GET_LG_STT;        // Get current status of logics port
+; 0000 01B6 //            if(LG_TEMP!=LG_STT)           // compare with elder status; if diffient ; send message
+; 0000 01B7 //                {
+; 0000 01B8 //                    //Reply with status of Relays and Logics
+; 0000 01B9 //                    while(!IND_COM_PIN);//wait for data line free
+; 0000 01BA //                    IND_COM_OPP;// Pull Indicate PIN to GND for sending data
+; 0000 01BB //                    printf(">%c%c\r\n",GET_LG_STT,GET_RL_STT);
+; 0000 01BC //                    IND_COM_IPU; // Free line and wait for reciver data
+; 0000 01BD //
+; 0000 01BE //                    LG_STT=LG_TEMP; // Update new logic status
+; 0000 01BF //                }
+; 0000 01C0       }
+;PCODE: $0000017B VOL: 0
+;PCODE: $0000017C VOL: 0
+;PCODE: $0000017D VOL: 0
+; 0000 01C1 }
+;PCODE: $0000017E VOL: 0
+;PCODE: $0000017F VOL: 0
+;PCODE: $00000180 VOL: 0

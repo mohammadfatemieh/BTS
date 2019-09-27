@@ -1,0 +1,4 @@
+bts_stt_rtc.Ex_Sensor.humi,
+	        bts_stt_rtc.Ex_Sensor.temp,
+	        bts_stt_rtc.Int_Sensor.humi,
+	        bts_stt_rtc.Int_Sensor.temp,

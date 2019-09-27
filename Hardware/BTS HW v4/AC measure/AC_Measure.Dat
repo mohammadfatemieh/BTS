@@ -1,0 +1,22 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~AC_Measure.PrjPcb|ReportField=ProjectFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC_Measure.PrjPcb|ReportField=Title~Bill of Materials For Project [AC_Measure.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~50|ReportField=ReportTime~8:49:52 AM|ReportField=ReportDate~3/29/2016|ReportField=ReportDateTime~3/29/2016 8:49:52 AM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~3/29/2016|ReportField=CurrentTime~8:48:08 AM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC2_Measure.SchDoc|ReportField=DocumentName~AC2_Measure.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~3/28/2016|ReportField=Organization~|ReportField=ProjectName~AC_Measure.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~AC_Measure.PrjPcb|ReportField=DataSourceFullPath~C:\Users\swat\Google Drive\In working\I Store medicin\Hardware\BTS HW v4\AC measure\AC_Measure.PrjPcb
+1|Led||+5V|LED 5mm RED|Led|1
+2|Header 10X2A|Header, 10-Pin, Dual row|AC_CON_1, AC_CON_2|OMC10|Header 10X2A|2
+3|Cap||C11, C14, C15, C17, C33, C35, C37|CAPC2012N_F|Cap|7
+4|CAP NP||C12, C13, C16, C31, C32, C34, C36, C38, C39, C310, C311, C312, C313, C314|CAPC1608N|CAP NP|14
+5|2200uF/35V|Cap 1000uF/16V - 220uF/50V|C22|CAP_ELEC_SIZE_G|CP4|1
+6|100nF/104||C41|CAPC2012N_F|CAP NP|1
+7|Diode||D22|DO-214AC|Diode|1
+8|Blue|LED 0805 SMD Blue 100mcd 470nm|E31|LED-0805-K|LED_SMD_Blue_0805_100mcd|1
+9|Header 3X2A|Header, 3-Pin, Dual row|ISP|HDR2X3_CEN|Header 3X2A|1
+10|Res||R3cf, R31, R32, R33, R34, R36, R37|0603ESDA|Res|7
+11|Res||R11|RESC1608N_ZERO|Res|1
+12|Res_0805_1k||R22|RESC2012N_F|Res|1
+13|0.002R|Resistor 1/4W|R35|RESC6332N|R|1
+14|Res||R38, R39, R317|RESC2012N_F|Res|3
+15|1k|Tro dan|R41, R42|RESC1608N_ZERO|Res|2
+16|330R|Tro dan|R44|RESC1608N_ZERO|Res|1
+17|ATmega88PA|ATmega48/168/328|U1|32PIN|ATmega48/168/328|1
+18|MAX485|RS232 - RS485 (Same sn75176)|U4|SO-8|MAX485|1
+19|ADE7753|Single-Phase Multifunction Metering IC with di/dt Sensor Interface|U31|TSSOP-20|ADE7753|1
+20|3.5795Mhz|Crystal For all Crystal 2pin.|X2|XT2|XT2|1
+21|16MHz||XT|XT2|Crystal|1

@@ -1,0 +1,15 @@
+Added Component: Designator=TP1(TP-R60)
+Added Component: Designator=TP2(TP-R60)
+Added Component: Designator=TP3(TP-R60)
+Added Component: Designator=TP4(TP-R60)
+Added Component: Designator=TP5(TP-R60)
+Added Pin To Net: NetName=+VIN Pin=TP1-1
+Added Pin To Net: NetName=IPK Pin=TP2-1
+Added Pin To Net: NetName=SWO Pin=TP3-1
+Added Pin To Net: NetName=FB Pin=TP4-1
+Added Pin To Net: NetName=-12V Pin=TP5-1
+Added Member To Class: ClassName=MC34063Inverting Member=Component TP1 TESTPOINT
+Added Member To Class: ClassName=MC34063Inverting Member=Component TP2 TESTPOINT
+Added Member To Class: ClassName=MC34063Inverting Member=Component TP3 TESTPOINT
+Added Member To Class: ClassName=MC34063Inverting Member=Component TP4 TESTPOINT
+Added Member To Class: ClassName=MC34063Inverting Member=Component TP5 TESTPOINT

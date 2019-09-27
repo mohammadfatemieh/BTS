@@ -1,0 +1,17 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+CMD                                                               0x0200       7
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+index                                                             R4           1
+process_CMD                                                       R3           1
+have_data                                                         R6           1
+LG_STT                                                            R5           1
+LG_TEMP                                                           R8           1

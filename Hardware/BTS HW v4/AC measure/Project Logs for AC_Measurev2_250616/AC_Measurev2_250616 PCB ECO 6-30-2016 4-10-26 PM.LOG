@@ -1,0 +1,19 @@
+Change Component Footprint: Designator=R36 Old Footprint=0603ESDA New Footprint=RESC2012N_F
+Change Component Footprint: Designator=R37 Old Footprint=0603ESDA New Footprint=RESC2012N_F
+Change Component Designator: OldDesignator=RV21 NewDesignator=RV31
+Added Component: Designator=R310(RESC2012N_F)
+Added Component: Designator=Rf(RESC2012N_F)
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR38_1 Pin=R310-1
+Added Pin To Net: NetName=NetR310_2 Pin=R310-2
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=AGND Pin=Rf-1
+Added Pin To Net: NetName=GND Pin=Rf-2
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component R310 Res
+Added Member To Class: ClassName=AC_Measurev2_250616 Member=Component Rf Res
